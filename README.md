@@ -125,4 +125,12 @@ Password: Password123$
 
 ## System Design
 
+Admin
+<img width="755" alt="Screenshot 2025-02-25 at 21 51 10" src="https://github.com/user-attachments/assets/850a4b0a-8158-4610-a33c-f73988dc540d" />
+
+
+Client
+<img width="439" alt="Screenshot 2025-02-25 at 23 50 49" src="https://github.com/user-attachments/assets/0e3b4b7d-2833-4bb3-b067-2e84da4e8c9d" />
+
+
 ## Design Decisions
