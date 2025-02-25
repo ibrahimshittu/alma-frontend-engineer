@@ -7,7 +7,7 @@ import { getFieldValue } from "@/lib/helpers";
 import { Readable } from "stream";
 import { IncomingMessage } from "http";
 import { Lead } from "@/schemas/types";
-import jwt from "jsonwebtoken";
+import { verifyAuthToken } from "@/lib/auth";
 
 export const config = {
   api: {
@@ -57,6 +57,7 @@ export async function POST(request: Request) {
     }
 
     const newLead: Lead = {
+      id: Math.random().toString(36).slice(2, 11),
       firstName: getFieldValue(fields.firstName),
       lastName: getFieldValue(fields.lastName),
       email: getFieldValue(fields.email),
@@ -88,9 +89,8 @@ export async function POST(request: Request) {
       try {
         await fs.rename(file.filepath, newPath);
       } catch (renameErr) {
-        console.error("Error renaming file:", renameErr);
         return NextResponse.json(
-          { message: "Error saving uploaded file" },
+          { message: `Error saving uploaded file: ${renameErr}` },
           { status: 500 }
         );
       }
@@ -105,8 +105,7 @@ export async function POST(request: Request) {
       { message: "Lead saved successfully", lead: newLead },
       { status: 200 }
     );
-  } catch (error: any) {
-    console.error("Error handling lead submission:", error);
+  } catch (error) {
     return NextResponse.json(
       { message: "Internal Server Error", error: (error as Error).message },
       { status: 500 }
@@ -114,36 +113,64 @@ export async function POST(request: Request) {
   }
 }
 
-export async function GET(request: Request) {
-  const authHeader = request.headers.get("Authorization");
-  if (!authHeader || !authHeader.startsWith("Bearer ")) {
-    return NextResponse.json(
-      { message: "Unauthorized: kindly login to access this resource" },
-      { status: 401 }
-    );
-  }
-
-  const token = authHeader.split(" ")[1];
-  const secret = process.env.JWT_SECRET || "MY_SUPER_SECRET";
-
+export async function GET(request: Request): Promise<NextResponse> {
   try {
-    jwt.verify(token, secret);
+    verifyAuthToken(request);
   } catch (error) {
     return NextResponse.json(
-      {
-        message: "Unauthorized: Invalid credentials",
-        error: (error as Error).message,
-      },
+      { message: (error as Error).message },
       { status: 401 }
     );
   }
 
   try {
     const leads: Lead[] = await readLeads();
-    console.log("leads", leads);
     return NextResponse.json({ message: "Success", leads }, { status: 200 });
   } catch (error) {
-    console.error("Error fetching leads:", error);
+    return NextResponse.json(
+      { message: "Internal Server Error", error: (error as Error).message },
+      { status: 500 }
+    );
+  }
+}
+
+export async function PUT(request: Request): Promise<NextResponse> {
+  try {
+    verifyAuthToken(request);
+  } catch (error) {
+    return NextResponse.json(
+      { message: (error as Error).message },
+      { status: 401 }
+    );
+  }
+
+  let body: Partial<Lead> & { id: string };
+  try {
+    body = await request.json();
+  } catch (error) {
+    return NextResponse.json({ message: "Invalid JSON body" }, { status: 400 });
+  }
+
+  if (!body.id) {
+    return NextResponse.json({ message: "Missing lead id" }, { status: 400 });
+  }
+
+  try {
+    const leads: Lead[] = await readLeads();
+    const index = leads.findIndex((lead) => lead.id === body.id);
+    if (index === -1) {
+      return NextResponse.json({ message: "Lead not found" }, { status: 404 });
+    }
+
+    const updatedLead: Lead = { ...leads[index], ...body };
+    leads[index] = updatedLead;
+    await saveLeads(leads);
+
+    return NextResponse.json(
+      { message: "Lead updated successfully", lead: updatedLead },
+      { status: 200 }
+    );
+  } catch (error) {
     return NextResponse.json(
       { message: "Internal Server Error", error: (error as Error).message },
       { status: 500 }

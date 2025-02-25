@@ -5,7 +5,10 @@
     "email": "ibrahim@tryalma.com",
     "country": "United States",
     "portfolio": "https://www.linkedin.com/in/ibrahimshittu/",
-    "visaCategories": ["EB2-NIW", "O1"],
+    "visaCategories": [
+      "EB2-NIW",
+      "O1"
+    ],
     "message": "rrr",
     "status": "PENDING",
     "createdAt": "2025-02-25T11:20:28.017Z",
@@ -17,7 +20,9 @@
     "email": "shittu@tryalma.com",
     "country": "United Kingdom",
     "portfolio": "https://www.linkedin.com/in/ibrahimshittu/",
-    "visaCategories": ["O1"],
+    "visaCategories": [
+      "O1"
+    ],
     "message": "help me out",
     "status": "PENDING",
     "createdAt": "2025-02-25T12:02:07.059Z",
@@ -29,7 +34,9 @@
     "email": "ibshittu01@gmail.com",
     "country": "Austria",
     "portfolio": "https://www.linkedin.com/in/ibrahimshittu/",
-    "visaCategories": ["I don't know"],
+    "visaCategories": [
+      "I don't know"
+    ],
     "message": "hello",
     "status": "PENDING",
     "createdAt": "2025-02-25T12:08:45.477Z",
@@ -41,7 +48,9 @@
     "email": "maria.gonzalez@example.com",
     "country": "Spain",
     "portfolio": "https://www.linkedin.com/in/maria-gonzalez/",
-    "visaCategories": ["O1"],
+    "visaCategories": [
+      "O1"
+    ],
     "message": "Looking for a long-term visa option.",
     "status": "PENDING",
     "createdAt": "2025-02-25T09:15:22.000Z",
@@ -53,7 +62,9 @@
     "email": "ethan.smith@example.com",
     "country": "Canada",
     "portfolio": "https://www.linkedin.com/in/ethan-smith/",
-    "visaCategories": ["EB1-A"],
+    "visaCategories": [
+      "EB1-A"
+    ],
     "message": "Interested in an employment-based green card.",
     "status": "REACHED_OUT",
     "createdAt": "2025-02-25T10:42:51.000Z",
@@ -65,7 +76,10 @@
     "email": "yuki.sato@example.com",
     "country": "Japan",
     "portfolio": "https://www.linkedin.com/in/yuki-sato/",
-    "visaCategories": ["EB2-NIW", "I don't know"],
+    "visaCategories": [
+      "EB2-NIW",
+      "I don't know"
+    ],
     "message": "Not sure which visa is right for me.",
     "status": "PENDING",
     "createdAt": "2025-02-25T11:28:14.000Z",
@@ -77,7 +91,10 @@
     "email": "zhang.wei@example.com",
     "country": "China",
     "portfolio": "https://www.linkedin.com/in/zhang-wei/",
-    "visaCategories": ["O1", "EB2-NIW"],
+    "visaCategories": [
+      "O1",
+      "EB2-NIW"
+    ],
     "message": "Hello, I'd like to explore my options.",
     "status": "PENDING",
     "createdAt": "2025-02-25T13:11:59.000Z",
@@ -89,7 +106,9 @@
     "email": "amelie.durand@example.com",
     "country": "France",
     "portfolio": "https://www.linkedin.com/in/amelie-durand/",
-    "visaCategories": ["EB1-A"],
+    "visaCategories": [
+      "EB1-A"
+    ],
     "message": "Seeking permanent residency path.",
     "status": "REACHED_OUT",
     "createdAt": "2025-02-25T14:46:33.000Z",
@@ -101,7 +120,9 @@
     "email": "fatima.khan@example.com",
     "country": "Pakistan",
     "portfolio": "https://www.linkedin.com/in/fatima-khan/",
-    "visaCategories": ["O1"],
+    "visaCategories": [
+      "O1"
+    ],
     "message": "I'd like to work in the tech sector.",
     "status": "PENDING",
     "createdAt": "2025-02-25T15:20:47.000Z",
@@ -113,7 +134,9 @@
     "email": "mateo.lopez@example.com",
     "country": "Mexico",
     "portfolio": "https://www.linkedin.com/in/mateo-lopez/",
-    "visaCategories": ["EB2-NIW"],
+    "visaCategories": [
+      "EB2-NIW"
+    ],
     "message": "Need help with my green card application.",
     "status": "PENDING",
     "createdAt": "2025-02-25T16:53:10.000Z",
@@ -125,7 +148,10 @@
     "email": "ibrahim@tryalma.com",
     "country": "United States",
     "portfolio": "https://www.linkedin.com/in/ibrahimshittu/",
-    "visaCategories": ["EB2-NIW", "O1"],
+    "visaCategories": [
+      "EB2-NIW",
+      "O1"
+    ],
     "message": "rrr",
     "status": "PENDING",
     "createdAt": "2025-02-25T11:20:28.017Z",
@@ -137,7 +163,9 @@
     "email": "shittu@tryalma.com",
     "country": "United Kingdom",
     "portfolio": "https://www.linkedin.com/in/ibrahimshittu/",
-    "visaCategories": ["O1"],
+    "visaCategories": [
+      "O1"
+    ],
     "message": "help me out",
     "status": "PENDING",
     "createdAt": "2025-02-25T12:02:07.059Z",
@@ -149,7 +177,10 @@
     "email": "ibrahim@tryalma.com",
     "country": "United States",
     "portfolio": "https://www.linkedin.com/in/ibrahimshittu/",
-    "visaCategories": ["EB2-NIW", "O1"],
+    "visaCategories": [
+      "EB2-NIW",
+      "O1"
+    ],
     "message": "rrr",
     "status": "PENDING",
     "createdAt": "2025-02-25T11:20:28.017Z",
@@ -161,7 +192,9 @@
     "email": "shittu@tryalma.com",
     "country": "United Kingdom",
     "portfolio": "https://www.linkedin.com/in/ibrahimshittu/",
-    "visaCategories": ["O1"],
+    "visaCategories": [
+      "O1"
+    ],
     "message": "help me out",
     "status": "PENDING",
     "createdAt": "2025-02-25T12:02:07.059Z",
@@ -173,7 +206,10 @@
     "email": "ibrahim@tryalma.com",
     "country": "United States",
     "portfolio": "https://www.linkedin.com/in/ibrahimshittu/",
-    "visaCategories": ["EB2-NIW", "O1"],
+    "visaCategories": [
+      "EB2-NIW",
+      "O1"
+    ],
     "message": "rrr",
     "status": "PENDING",
     "createdAt": "2025-02-25T11:20:28.017Z",
@@ -185,10 +221,43 @@
     "email": "shittu@tryalma.com",
     "country": "United Kingdom",
     "portfolio": "https://www.linkedin.com/in/ibrahimshittu/",
-    "visaCategories": ["O1"],
+    "visaCategories": [
+      "O1"
+    ],
     "message": "help me out",
     "status": "PENDING",
     "createdAt": "2025-02-25T12:02:07.059Z",
     "cv": "/uploads/Ibrahim_Shittu_1740484927059.pdf"
+  },
+  {
+    "id": "xdatfc8is",
+    "firstName": "Ibrahim",
+    "lastName": "Shittu",
+    "email": "ibrahim01@tryalma.com",
+    "country": "Austria",
+    "portfolio": "https://www.linkedin.com/in/ibrahimshittu/",
+    "visaCategories": [
+      "EB1-A"
+    ],
+    "message": "I am ibrahim",
+    "status": "PENDING",
+    "createdAt": "2025-02-25T14:52:32.444Z",
+    "cv": "/uploads/Ibrahim_Shittu_1740495152444.doc"
+  },
+  {
+    "id": "xjrky2xpj",
+    "firstName": "Ibrahim",
+    "lastName": "Shittu",
+    "email": "ibshittu1@tryalma.com",
+    "country": "Armenia",
+    "portfolio": "https://www.linkedin.com/in/ibrahimshittu/",
+    "visaCategories": [
+      "EB1-A",
+      "I don't know"
+    ],
+    "message": "I am fine",
+    "status": "PENDING",
+    "createdAt": "2025-02-25T14:53:39.345Z",
+    "cv": "/uploads/Ibrahim_Shittu_1740495219345.pdf"
   }
 ]

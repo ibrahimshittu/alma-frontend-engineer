@@ -45,7 +45,7 @@ export default function Login() {
 
     const { token } = await response.json();
     document.cookie = `token=${token};max-age=3600;path=/`;
-    router.push("/leads");
+    router.push("/admin/leads");
   };
 
   return (

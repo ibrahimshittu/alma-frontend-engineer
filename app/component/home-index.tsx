@@ -62,7 +62,7 @@ export default function Home() {
     }
 
     const response = await fetch("/api/lead", {
-      method: "PUT",
+      method: "POST",
       body: formData,
     });
 
@@ -72,8 +72,8 @@ export default function Home() {
     }
 
     document.cookie = "formSubmitted=true; path=/; max-age=60";
-    form.reset();
     router.push("/thank-you");
+    form.reset();
   };
 
   const availableVisaCategories = ["O1", "EB1-A", "EB2-NIW", "I don't know"];

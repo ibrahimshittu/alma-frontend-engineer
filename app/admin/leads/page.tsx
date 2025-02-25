@@ -13,7 +13,6 @@ async function page() {
 
   const allLeads = await getAllLeads();
 
-  console.log("allLeads", allLeads);
   return <Leads allLeads={allLeads} />;
 }
 
