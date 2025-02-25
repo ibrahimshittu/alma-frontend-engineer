@@ -179,7 +179,7 @@ The system follows a modular, scalable, and secure architecture, leveraging Next
 - Tokens are stored in httpOnly cookies to prevent XSS attacks.
 - Admin-only pages under /admin are protected via Next.js middleware.
 
-### 4️⃣ Storage & Data Layer
+### 4️⃣ Storage & Data
 - Local JSON files (for demo purposes) act as a lightweight database.
 - Formidable is used for file uploads, ensuring secure storage of prospect CVs.
 
