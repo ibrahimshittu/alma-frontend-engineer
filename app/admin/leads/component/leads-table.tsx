@@ -34,7 +34,7 @@ export default function LeadsTable({
   updateLeadAction: (formData: FormData) => void;
 }) {
   return (
-    <ScrollArea className="h-[calc(100vh-17rem)]">
+    <ScrollArea className="lg:h-[calc(100vh-17rem)] h-[calc(100vh-10rem)]">
       <Table className="w-full">
         <TableHeader className="sticky top-0  bg-white z-10">
           <TableRow className="h-12 bg-white">

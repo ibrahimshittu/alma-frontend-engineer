@@ -4,7 +4,6 @@ import { getAllLeads } from "../actions";
 
 async function page() {
   const allLeads = await getAllLeads();
-
   return <Leads allLeads={allLeads} />;
 }
 

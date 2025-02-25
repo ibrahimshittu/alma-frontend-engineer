@@ -18,6 +18,8 @@ import {
   Search,
   ChevronRight,
   ChevronLeft,
+  X,
+  Logs,
 } from "lucide-react";
 import AlmaLogo from "@/components/icon/icon";
 import { usePathname } from "next/navigation";
@@ -30,6 +32,7 @@ import dayjs from "dayjs";
 const ITEMS_PER_PAGE = 25;
 
 export default function LeadsPage({ allLeads }: { allLeads: Lead[] }) {
+  const [isSidebarOpen, setSidebarOpen] = useState(false);
   const [leads, setLeads] = useState<Lead[]>(allLeads);
   const [currentPage, setCurrentPage] = useState(1);
   const pathname = usePathname();
@@ -151,12 +154,24 @@ export default function LeadsPage({ allLeads }: { allLeads: Lead[] }) {
       <div className="absolute -top-40 -left-64 w-2/5 h-2/5 rounded-full bg-gradient-to-br from-[#c4cd73] to-[#fff] blur-3xl opacity-90 pointer-events-none" />
 
       {/* SIDEBAR */}
-      <aside className="flex flex-col py-4 w-64 border-r border-gray-200 z-10">
-        <div className="h-16 flex items-center px-6">
-          <AlmaLogo className="bg-[transparent] w-20 h-20" />
+      <aside
+        className={`flex fixed inset-y-0 left-0 w-64 bg-white lg:bg-transparent border-r border-gray-200 p-4 z-50 lg:static lg:flex flex-col 
+          transform ${isSidebarOpen ? "translate-x-0" : "-translate-x-full"}
+          transition-transform ease-in-out duration-300 lg:translate-x-0`}
+      >
+        <div className="flex items-center justify-between h-16 px-2">
+          <AlmaLogo className="w-20 h-20" />
+          <Button
+            variant="default"
+            size="sm"
+            className="lg:hidden"
+            onClick={() => setSidebarOpen(false)}
+          >
+            <X className="h-6 w-6" />
+          </Button>
         </div>
 
-        <nav className="flex-1 px-2 py-14 space-y-2">
+        <nav className="flex-1 py-14 space-y-2">
           <Link
             href="/admin/leads"
             className={`block rounded-md px-3 py-2 text-base ${
@@ -179,7 +194,7 @@ export default function LeadsPage({ allLeads }: { allLeads: Lead[] }) {
           </Link>
         </nav>
 
-        <div className="px-6 py-4 flex items-center space-x-4">
+        <div className="py-4 flex items-center space-x-4">
           <div className="w-10 h-10 flex items-center justify-center bg-gray-200 text-gray-600 rounded-full text-lg font-semibold">
             A
           </div>
@@ -189,7 +204,17 @@ export default function LeadsPage({ allLeads }: { allLeads: Lead[] }) {
 
       {/* MAIN CONTENT */}
       <main className="flex-1 py-9 px-6 z-10">
-        <h1 className="text-2xl font-bold mb-8">Leads</h1>
+        <div className="flex items-start justify-between">
+          <h1 className="text-2xl font-bold mb-8">Leads</h1>
+          <Button
+            variant="ghost"
+            size="sm"
+            className="lg:hidden"
+            onClick={() => setSidebarOpen(!isSidebarOpen)}
+          >
+            <Logs className="h-6 w-6" />
+          </Button>
+        </div>
 
         <div className="flex items-center gap-2 mb-4">
           <div className="relative max-w-xs w-full">

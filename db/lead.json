@@ -6,7 +6,10 @@
     "email": "ibrahim@tryalma.com",
     "country": "United States",
     "portfolio": "https://www.linkedin.com/in/ibrahimshittu/",
-    "visaCategories": ["EB2-NIW", "O1"],
+    "visaCategories": [
+      "EB2-NIW",
+      "O1"
+    ],
     "message": "rrr",
     "status": "REACHED_OUT",
     "createdAt": "2025-02-25T11:20:28.017Z",
@@ -19,7 +22,9 @@
     "email": "shittu@tryalma.com",
     "country": "United Kingdom",
     "portfolio": "https://www.linkedin.com/in/ibrahimshittu/",
-    "visaCategories": ["O1"],
+    "visaCategories": [
+      "O1"
+    ],
     "message": "help me out",
     "status": "REACHED_OUT",
     "createdAt": "2025-02-25T12:02:07.059Z",
@@ -32,7 +37,9 @@
     "email": "ibshittu01@gmail.com",
     "country": "Austria",
     "portfolio": "https://www.linkedin.com/in/ibrahimshittu/",
-    "visaCategories": ["I don't know"],
+    "visaCategories": [
+      "I don't know"
+    ],
     "message": "hello",
     "status": "REACHED_OUT",
     "createdAt": "2025-02-25T12:08:45.477Z",
@@ -45,7 +52,9 @@
     "email": "maria.gonzalez@example.com",
     "country": "Spain",
     "portfolio": "https://www.linkedin.com/in/maria-gonzalez/",
-    "visaCategories": ["O1"],
+    "visaCategories": [
+      "O1"
+    ],
     "message": "Looking for a long-term visa option.",
     "status": "REACHED_OUT",
     "createdAt": "2025-02-25T09:15:22.000Z",
@@ -58,7 +67,9 @@
     "email": "ethan.smith@example.com",
     "country": "Canada",
     "portfolio": "https://www.linkedin.com/in/ethan-smith/",
-    "visaCategories": ["EB1-A"],
+    "visaCategories": [
+      "EB1-A"
+    ],
     "message": "Interested in an employment-based green card.",
     "status": "REACHED_OUT",
     "createdAt": "2025-02-25T10:42:51.000Z",
@@ -71,9 +82,12 @@
     "email": "yuki.sato@example.com",
     "country": "Japan",
     "portfolio": "https://www.linkedin.com/in/yuki-sato/",
-    "visaCategories": ["EB2-NIW", "I don't know"],
+    "visaCategories": [
+      "EB2-NIW",
+      "I don't know"
+    ],
     "message": "Not sure which visa is right for me.",
-    "status": "PENDING",
+    "status": "REACHED_OUT",
     "createdAt": "2025-02-25T11:28:14.000Z",
     "cv": "/uploads/Yuki_Sato_1740497294000.pdf"
   },
@@ -84,7 +98,10 @@
     "email": "zhang.wei@example.com",
     "country": "China",
     "portfolio": "https://www.linkedin.com/in/zhang-wei/",
-    "visaCategories": ["O1", "EB2-NIW"],
+    "visaCategories": [
+      "O1",
+      "EB2-NIW"
+    ],
     "message": "Hello, I'd like to explore my options.",
     "status": "PENDING",
     "createdAt": "2025-02-25T13:11:59.000Z",
@@ -97,7 +114,9 @@
     "email": "amelie.durand@example.com",
     "country": "France",
     "portfolio": "https://www.linkedin.com/in/amelie-durand/",
-    "visaCategories": ["EB1-A"],
+    "visaCategories": [
+      "EB1-A"
+    ],
     "message": "Seeking permanent residency path.",
     "status": "REACHED_OUT",
     "createdAt": "2025-02-25T14:46:33.000Z",
@@ -110,7 +129,9 @@
     "email": "fatima.khan@example.com",
     "country": "Pakistan",
     "portfolio": "https://www.linkedin.com/in/fatima-khan/",
-    "visaCategories": ["O1"],
+    "visaCategories": [
+      "O1"
+    ],
     "message": "I'd like to work in the tech sector.",
     "status": "PENDING",
     "createdAt": "2025-02-25T15:20:47.000Z",
@@ -123,7 +144,9 @@
     "email": "mateo.lopez@example.com",
     "country": "Mexico",
     "portfolio": "https://www.linkedin.com/in/mateo-lopez/",
-    "visaCategories": ["EB2-NIW"],
+    "visaCategories": [
+      "EB2-NIW"
+    ],
     "message": "Need help with my green card application.",
     "status": "PENDING",
     "createdAt": "2025-02-25T16:53:10.000Z",
@@ -136,7 +159,10 @@
     "email": "ibrahim@tryalma.com",
     "country": "United States",
     "portfolio": "https://www.linkedin.com/in/ibrahimshittu/",
-    "visaCategories": ["EB2-NIW", "O1"],
+    "visaCategories": [
+      "EB2-NIW",
+      "O1"
+    ],
     "message": "rrr",
     "status": "PENDING",
     "createdAt": "2025-02-25T11:20:28.017Z",
@@ -149,7 +175,9 @@
     "email": "shittu@tryalma.com",
     "country": "United Kingdom",
     "portfolio": "https://www.linkedin.com/in/ibrahimshittu/",
-    "visaCategories": ["O1"],
+    "visaCategories": [
+      "O1"
+    ],
     "message": "help me out",
     "status": "PENDING",
     "createdAt": "2025-02-25T12:02:07.059Z",
@@ -162,7 +190,10 @@
     "email": "ibrahim@tryalma.com",
     "country": "United States",
     "portfolio": "https://www.linkedin.com/in/ibrahimshittu/",
-    "visaCategories": ["EB2-NIW", "O1"],
+    "visaCategories": [
+      "EB2-NIW",
+      "O1"
+    ],
     "message": "rrr",
     "status": "PENDING",
     "createdAt": "2025-02-25T11:20:28.017Z",
@@ -175,7 +206,9 @@
     "email": "shittu@tryalma.com",
     "country": "United Kingdom",
     "portfolio": "https://www.linkedin.com/in/ibrahimshittu/",
-    "visaCategories": ["O1"],
+    "visaCategories": [
+      "O1"
+    ],
     "message": "help me out",
     "status": "PENDING",
     "createdAt": "2025-02-25T12:02:07.059Z",
@@ -188,7 +221,10 @@
     "email": "ibrahim@tryalma.com",
     "country": "United States",
     "portfolio": "https://www.linkedin.com/in/ibrahimshittu/",
-    "visaCategories": ["EB2-NIW", "O1"],
+    "visaCategories": [
+      "EB2-NIW",
+      "O1"
+    ],
     "message": "rrr",
     "status": "PENDING",
     "createdAt": "2025-02-25T11:20:28.017Z",
@@ -201,7 +237,9 @@
     "email": "shittu@tryalma.com",
     "country": "United Kingdom",
     "portfolio": "https://www.linkedin.com/in/ibrahimshittu/",
-    "visaCategories": ["O1"],
+    "visaCategories": [
+      "O1"
+    ],
     "message": "help me out",
     "status": "PENDING",
     "createdAt": "2025-02-25T12:02:07.059Z",
@@ -214,7 +252,10 @@
     "email": "ibrahim.smith@example.com",
     "country": "United States",
     "portfolio": "https://www.linkedin.com/in/ibrahim-smith/",
-    "visaCategories": ["EB2-NIW", "O1"],
+    "visaCategories": [
+      "EB2-NIW",
+      "O1"
+    ],
     "message": "Message from Ibrahim",
     "status": "REACHED_OUT",
     "createdAt": "2025-02-25T09:00:00.000Z",
@@ -227,7 +268,9 @@
     "email": "maria.johnson@example.com",
     "country": "United Kingdom",
     "portfolio": "https://www.linkedin.com/in/maria-johnson/",
-    "visaCategories": ["O1"],
+    "visaCategories": [
+      "O1"
+    ],
     "message": "Message from Maria",
     "status": "REACHED_OUT",
     "createdAt": "2025-02-25T09:10:00.000Z",
@@ -240,7 +283,9 @@
     "email": "ethan.williams@example.com",
     "country": "Canada",
     "portfolio": "https://www.linkedin.com/in/ethan-williams/",
-    "visaCategories": ["I don't know"],
+    "visaCategories": [
+      "I don't know"
+    ],
     "message": "Message from Ethan",
     "status": "REACHED_OUT",
     "createdAt": "2025-02-25T09:20:00.000Z",
@@ -253,7 +298,10 @@
     "email": "yuki.brown@example.com",
     "country": "Australia",
     "portfolio": "https://www.linkedin.com/in/yuki-brown/",
-    "visaCategories": ["EB2-NIW", "I don't know"],
+    "visaCategories": [
+      "EB2-NIW",
+      "I don't know"
+    ],
     "message": "Message from Yuki",
     "status": "PENDING",
     "createdAt": "2025-02-25T09:30:00.000Z",
@@ -266,7 +314,10 @@
     "email": "zhang.jones@example.com",
     "country": "Germany",
     "portfolio": "https://www.linkedin.com/in/zhang-jones/",
-    "visaCategories": ["O1", "EB2-NIW"],
+    "visaCategories": [
+      "O1",
+      "EB2-NIW"
+    ],
     "message": "Message from Zhang",
     "status": "PENDING",
     "createdAt": "2025-02-25T09:40:00.000Z",
@@ -279,7 +330,9 @@
     "email": "amelie.garcia@example.com",
     "country": "France",
     "portfolio": "https://www.linkedin.com/in/amelie-garcia/",
-    "visaCategories": ["EB1-A"],
+    "visaCategories": [
+      "EB1-A"
+    ],
     "message": "Message from Amelie",
     "status": "REACHED_OUT",
     "createdAt": "2025-02-25T09:50:00.000Z",
@@ -292,7 +345,9 @@
     "email": "fatima.miller@example.com",
     "country": "Spain",
     "portfolio": "https://www.linkedin.com/in/fatima-miller/",
-    "visaCategories": ["O1"],
+    "visaCategories": [
+      "O1"
+    ],
     "message": "Message from Fatima",
     "status": "PENDING",
     "createdAt": "2025-02-25T10:00:00.000Z",
@@ -305,7 +360,9 @@
     "email": "mateo.davis@example.com",
     "country": "Italy",
     "portfolio": "https://www.linkedin.com/in/mateo-davis/",
-    "visaCategories": ["EB2-NIW"],
+    "visaCategories": [
+      "EB2-NIW"
+    ],
     "message": "Message from Mateo",
     "status": "PENDING",
     "createdAt": "2025-02-25T10:10:00.000Z",
@@ -318,7 +375,9 @@
     "email": "john.rodriguez@example.com",
     "country": "United States",
     "portfolio": "https://www.linkedin.com/in/john-rodriguez/",
-    "visaCategories": ["O1"],
+    "visaCategories": [
+      "O1"
+    ],
     "message": "Message from John",
     "status": "REACHED_OUT",
     "createdAt": "2025-02-25T10:20:00.000Z",
@@ -331,7 +390,10 @@
     "email": "alice.martinez@example.com",
     "country": "United Kingdom",
     "portfolio": "https://www.linkedin.com/in/alice-martinez/",
-    "visaCategories": ["EB1-A", "O1"],
+    "visaCategories": [
+      "EB1-A",
+      "O1"
+    ],
     "message": "Message from Alice",
     "status": "PENDING",
     "createdAt": "2025-02-25T10:30:00.000Z",
@@ -344,7 +406,9 @@
     "email": "bob.hernandez@example.com",
     "country": "Canada",
     "portfolio": "https://www.linkedin.com/in/bob-hernandez/",
-    "visaCategories": ["I don't know"],
+    "visaCategories": [
+      "I don't know"
+    ],
     "message": "Message from Bob",
     "status": "PENDING",
     "createdAt": "2025-02-25T10:40:00.000Z",
@@ -357,7 +421,9 @@
     "email": "carol.lopez@example.com",
     "country": "Australia",
     "portfolio": "https://www.linkedin.com/in/carol-lopez/",
-    "visaCategories": ["EB2-NIW"],
+    "visaCategories": [
+      "EB2-NIW"
+    ],
     "message": "Message from Carol",
     "status": "REACHED_OUT",
     "createdAt": "2025-02-25T10:50:00.000Z",
@@ -370,7 +436,10 @@
     "email": "david.gonzalez@example.com",
     "country": "Germany",
     "portfolio": "https://www.linkedin.com/in/david-gonzalez/",
-    "visaCategories": ["O1", "EB1-A"],
+    "visaCategories": [
+      "O1",
+      "EB1-A"
+    ],
     "message": "Message from David",
     "status": "PENDING",
     "createdAt": "2025-02-25T11:00:00.000Z",
@@ -383,7 +452,9 @@
     "email": "eva.wilson@example.com",
     "country": "France",
     "portfolio": "https://www.linkedin.com/in/eva-wilson/",
-    "visaCategories": ["O1"],
+    "visaCategories": [
+      "O1"
+    ],
     "message": "Message from Eva",
     "status": "REACHED_OUT",
     "createdAt": "2025-02-25T11:10:00.000Z",
@@ -396,7 +467,10 @@
     "email": "frank.anderson@example.com",
     "country": "Spain",
     "portfolio": "https://www.linkedin.com/in/frank-anderson/",
-    "visaCategories": ["EB2-NIW", "I don't know"],
+    "visaCategories": [
+      "EB2-NIW",
+      "I don't know"
+    ],
     "message": "Message from Frank",
     "status": "PENDING",
     "createdAt": "2025-02-25T11:20:00.000Z",
@@ -409,7 +483,9 @@
     "email": "grace.thomas@example.com",
     "country": "Italy",
     "portfolio": "https://www.linkedin.com/in/grace-thomas/",
-    "visaCategories": ["EB1-A"],
+    "visaCategories": [
+      "EB1-A"
+    ],
     "message": "Message from Grace",
     "status": "PENDING",
     "createdAt": "2025-02-25T11:30:00.000Z",
@@ -422,7 +498,9 @@
     "email": "hector.taylor@example.com",
     "country": "Japan",
     "portfolio": "https://www.linkedin.com/in/hector-taylor/",
-    "visaCategories": ["O1"],
+    "visaCategories": [
+      "O1"
+    ],
     "message": "Message from Hector",
     "status": "REACHED_OUT",
     "createdAt": "2025-02-25T11:40:00.000Z",
@@ -435,7 +513,9 @@
     "email": "ivy.moore@example.com",
     "country": "China",
     "portfolio": "https://www.linkedin.com/in/ivy-moore/",
-    "visaCategories": ["EB2-NIW"],
+    "visaCategories": [
+      "EB2-NIW"
+    ],
     "message": "Message from Ivy",
     "status": "PENDING",
     "createdAt": "2025-02-25T11:50:00.000Z",
@@ -448,7 +528,10 @@
     "email": "jack.jackson@example.com",
     "country": "United States",
     "portfolio": "https://www.linkedin.com/in/jack-jackson/",
-    "visaCategories": ["O1", "EB1-A"],
+    "visaCategories": [
+      "O1",
+      "EB1-A"
+    ],
     "message": "Message from Jack",
     "status": "REACHED_OUT",
     "createdAt": "2025-02-25T12:00:00.000Z",
@@ -461,7 +544,9 @@
     "email": "kira.martin@example.com",
     "country": "United Kingdom",
     "portfolio": "https://www.linkedin.com/in/kira-martin/",
-    "visaCategories": ["I don't know"],
+    "visaCategories": [
+      "I don't know"
+    ],
     "message": "Message from Kira",
     "status": "PENDING",
     "createdAt": "2025-02-25T12:10:00.000Z",
@@ -474,7 +559,10 @@
     "email": "leo.lee@example.com",
     "country": "Canada",
     "portfolio": "https://www.linkedin.com/in/leo-lee/",
-    "visaCategories": ["EB2-NIW", "O1"],
+    "visaCategories": [
+      "EB2-NIW",
+      "O1"
+    ],
     "message": "Message from Leo",
     "status": "REACHED_OUT",
     "createdAt": "2025-02-25T12:20:00.000Z",
@@ -487,7 +575,9 @@
     "email": "mona.perez@example.com",
     "country": "Australia",
     "portfolio": "https://www.linkedin.com/in/mona-perez/",
-    "visaCategories": ["EB1-A"],
+    "visaCategories": [
+      "EB1-A"
+    ],
     "message": "Message from Mona",
     "status": "PENDING",
     "createdAt": "2025-02-25T12:30:00.000Z",
@@ -500,7 +590,9 @@
     "email": "noah.thompson@example.com",
     "country": "Germany",
     "portfolio": "https://www.linkedin.com/in/noah-thompson/",
-    "visaCategories": ["O1"],
+    "visaCategories": [
+      "O1"
+    ],
     "message": "Message from Noah",
     "status": "REACHED_OUT",
     "createdAt": "2025-02-25T12:40:00.000Z",
@@ -513,7 +605,9 @@
     "email": "olivia.martinez@example.com",
     "country": "France",
     "portfolio": "https://www.linkedin.com/in/olivia-martinez/",
-    "visaCategories": ["EB2-NIW"],
+    "visaCategories": [
+      "EB2-NIW"
+    ],
     "message": "Message from Olivia",
     "status": "PENDING",
     "createdAt": "2025-02-25T12:50:00.000Z",
@@ -526,7 +620,10 @@
     "email": "peter.harris@example.com",
     "country": "Italy",
     "portfolio": "https://www.linkedin.com/in/peter-harris/",
-    "visaCategories": ["O1", "EB1-A"],
+    "visaCategories": [
+      "O1",
+      "EB1-A"
+    ],
     "message": "Message from Peter",
     "status": "REACHED_OUT",
     "createdAt": "2025-02-25T13:00:00.000Z",
@@ -539,7 +636,9 @@
     "email": "quincy.sanchez@example.com",
     "country": "Japan",
     "portfolio": "https://www.linkedin.com/in/quincy-sanchez/",
-    "visaCategories": ["I don't know"],
+    "visaCategories": [
+      "I don't know"
+    ],
     "message": "Message from Quincy",
     "status": "PENDING",
     "createdAt": "2025-02-25T13:10:00.000Z",
@@ -552,7 +651,10 @@
     "email": "rachel.clark@example.com",
     "country": "China",
     "portfolio": "https://www.linkedin.com/in/rachel-clark/",
-    "visaCategories": ["EB2-NIW", "O1"],
+    "visaCategories": [
+      "EB2-NIW",
+      "O1"
+    ],
     "message": "Message from Rachel",
     "status": "REACHED_OUT",
     "createdAt": "2025-02-25T13:20:00.000Z",
@@ -565,7 +667,9 @@
     "email": "sam.ramirez@example.com",
     "country": "United States",
     "portfolio": "https://www.linkedin.com/in/sam-ramirez/",
-    "visaCategories": ["EB1-A"],
+    "visaCategories": [
+      "EB1-A"
+    ],
     "message": "Message from Sam",
     "status": "PENDING",
     "createdAt": "2025-02-25T13:30:00.000Z",
@@ -578,7 +682,9 @@
     "email": "tina.lewis@example.com",
     "country": "United Kingdom",
     "portfolio": "https://www.linkedin.com/in/tina-lewis/",
-    "visaCategories": ["O1"],
+    "visaCategories": [
+      "O1"
+    ],
     "message": "Message from Tina",
     "status": "REACHED_OUT",
     "createdAt": "2025-02-25T13:40:00.000Z",
@@ -591,7 +697,9 @@
     "email": "uma.robinson@example.com",
     "country": "Canada",
     "portfolio": "https://www.linkedin.com/in/uma-robinson/",
-    "visaCategories": ["I don't know"],
+    "visaCategories": [
+      "I don't know"
+    ],
     "message": "Message from Uma",
     "status": "PENDING",
     "createdAt": "2025-02-25T13:50:00.000Z",
@@ -604,7 +712,9 @@
     "email": "victor.walker@example.com",
     "country": "Australia",
     "portfolio": "https://www.linkedin.com/in/victor-walker/",
-    "visaCategories": ["EB2-NIW"],
+    "visaCategories": [
+      "EB2-NIW"
+    ],
     "message": "Message from Victor",
     "status": "REACHED_OUT",
     "createdAt": "2025-02-25T14:00:00.000Z",
@@ -617,7 +727,10 @@
     "email": "wendy.young@example.com",
     "country": "Italy",
     "portfolio": "https://www.linkedin.com/in/wendy-young/",
-    "visaCategories": ["O1", "EB1-A"],
+    "visaCategories": [
+      "O1",
+      "EB1-A"
+    ],
     "message": "Message from Wendy",
     "status": "PENDING",
     "createdAt": "2025-02-25T14:10:00.000Z",
@@ -630,7 +743,9 @@
     "email": "xander.allen@example.com",
     "country": "Japan",
     "portfolio": "https://www.linkedin.com/in/xander-allen/",
-    "visaCategories": ["EB2-NIW"],
+    "visaCategories": [
+      "EB2-NIW"
+    ],
     "message": "Message from Xander",
     "status": "REACHED_OUT",
     "createdAt": "2025-02-25T14:20:00.000Z",
@@ -643,7 +758,9 @@
     "email": "yara.king@example.com",
     "country": "China",
     "portfolio": "https://www.linkedin.com/in/yara-king/",
-    "visaCategories": ["O1"],
+    "visaCategories": [
+      "O1"
+    ],
     "message": "Message from Yara",
     "status": "PENDING",
     "createdAt": "2025-02-25T14:30:00.000Z",
@@ -656,7 +773,10 @@
     "email": "zoe.wright@example.com",
     "country": "United States",
     "portfolio": "https://www.linkedin.com/in/zoe-wright/",
-    "visaCategories": ["EB1-A", "I don't know"],
+    "visaCategories": [
+      "EB1-A",
+      "I don't know"
+    ],
     "message": "Message from Zoe",
     "status": "REACHED_OUT",
     "createdAt": "2025-02-25T14:40:00.000Z",
@@ -669,7 +789,9 @@
     "email": "aaron.scott@example.com",
     "country": "United Kingdom",
     "portfolio": "https://www.linkedin.com/in/aaron-scott/",
-    "visaCategories": ["EB2-NIW"],
+    "visaCategories": [
+      "EB2-NIW"
+    ],
     "message": "Message from Aaron",
     "status": "PENDING",
     "createdAt": "2025-02-25T14:50:00.000Z",
@@ -682,7 +804,10 @@
     "email": "bella.torres@example.com",
     "country": "Canada",
     "portfolio": "https://www.linkedin.com/in/bella-torres/",
-    "visaCategories": ["O1", "EB1-A"],
+    "visaCategories": [
+      "O1",
+      "EB1-A"
+    ],
     "message": "Message from Bella",
     "status": "REACHED_OUT",
     "createdAt": "2025-02-25T15:00:00.000Z",
@@ -695,7 +820,9 @@
     "email": "caleb.nguyen@example.com",
     "country": "Australia",
     "portfolio": "https://www.linkedin.com/in/caleb-nguyen/",
-    "visaCategories": ["I don't know"],
+    "visaCategories": [
+      "I don't know"
+    ],
     "message": "Message from Caleb",
     "status": "PENDING",
     "createdAt": "2025-02-25T15:10:00.000Z",
@@ -708,7 +835,10 @@
     "email": "diana.hill@example.com",
     "country": "Italy",
     "portfolio": "https://www.linkedin.com/in/diana-hill/",
-    "visaCategories": ["EB2-NIW", "O1"],
+    "visaCategories": [
+      "EB2-NIW",
+      "O1"
+    ],
     "message": "Message from Diana",
     "status": "REACHED_OUT",
     "createdAt": "2025-02-25T15:20:00.000Z",
@@ -721,7 +851,9 @@
     "email": "elijah.flores@example.com",
     "country": "Japan",
     "portfolio": "https://www.linkedin.com/in/elijah-flores/",
-    "visaCategories": ["EB1-A"],
+    "visaCategories": [
+      "EB1-A"
+    ],
     "message": "Message from Elijah",
     "status": "PENDING",
     "createdAt": "2025-02-25T15:30:00.000Z",
@@ -734,7 +866,9 @@
     "email": "fiona.green@example.com",
     "country": "China",
     "portfolio": "https://www.linkedin.com/in/fiona-green/",
-    "visaCategories": ["O1"],
+    "visaCategories": [
+      "O1"
+    ],
     "message": "Message from Fiona",
     "status": "REACHED_OUT",
     "createdAt": "2025-02-25T15:40:00.000Z",
@@ -747,7 +881,10 @@
     "email": "george.adams@example.com",
     "country": "United States",
     "portfolio": "https://www.linkedin.com/in/george-adams/",
-    "visaCategories": ["EB2-NIW", "I don't know"],
+    "visaCategories": [
+      "EB2-NIW",
+      "I don't know"
+    ],
     "message": "Message from George",
     "status": "PENDING",
     "createdAt": "2025-02-25T15:50:00.000Z",
@@ -760,7 +897,10 @@
     "email": "hazel.nelson@example.com",
     "country": "United Kingdom",
     "portfolio": "https://www.linkedin.com/in/hazel-nelson/",
-    "visaCategories": ["O1", "EB1-A"],
+    "visaCategories": [
+      "O1",
+      "EB1-A"
+    ],
     "message": "Message from Hazel",
     "status": "REACHED_OUT",
     "createdAt": "2025-02-25T16:00:00.000Z",
@@ -773,7 +913,9 @@
     "email": "ivan.baker@example.com",
     "country": "Canada",
     "portfolio": "https://www.linkedin.com/in/ivan-baker/",
-    "visaCategories": ["I don't know"],
+    "visaCategories": [
+      "I don't know"
+    ],
     "message": "Message from Ivan",
     "status": "PENDING",
     "createdAt": "2025-02-25T16:10:00.000Z",
@@ -786,7 +928,9 @@
     "email": "jasmine.hall@example.com",
     "country": "Australia",
     "portfolio": "https://www.linkedin.com/in/jasmine-hall/",
-    "visaCategories": ["EB1-A"],
+    "visaCategories": [
+      "EB1-A"
+    ],
     "message": "Message from Jasmine",
     "status": "REACHED_OUT",
     "createdAt": "2025-02-25T16:20:00.000Z",
@@ -799,7 +943,9 @@
     "email": "kyle.rivera@example.com",
     "country": "Italy",
     "portfolio": "https://www.linkedin.com/in/kyle-rivera/",
-    "visaCategories": ["O1"],
+    "visaCategories": [
+      "O1"
+    ],
     "message": "Message from Kyle",
     "status": "PENDING",
     "createdAt": "2025-02-25T16:30:00.000Z",
@@ -812,7 +958,9 @@
     "email": "liam.campbell@example.com",
     "country": "Japan",
     "portfolio": "https://www.linkedin.com/in/liam-campbell/",
-    "visaCategories": ["EB2-NIW"],
+    "visaCategories": [
+      "EB2-NIW"
+    ],
     "message": "Message from Liam",
     "status": "REACHED_OUT",
     "createdAt": "2025-02-25T16:40:00.000Z",
@@ -825,7 +973,10 @@
     "email": "mia.mitchell@example.com",
     "country": "China",
     "portfolio": "https://www.linkedin.com/in/mia-mitchell/",
-    "visaCategories": ["O1", "EB1-A"],
+    "visaCategories": [
+      "O1",
+      "EB1-A"
+    ],
     "message": "Message from Mia",
     "status": "PENDING",
     "createdAt": "2025-02-25T16:50:00.000Z",
@@ -838,7 +989,9 @@
     "email": "nina.carter@example.com",
     "country": "United States",
     "portfolio": "https://www.linkedin.com/in/nina-carter/",
-    "visaCategories": ["I don't know"],
+    "visaCategories": [
+      "I don't know"
+    ],
     "message": "Message from Nina",
     "status": "REACHED_OUT",
     "createdAt": "2025-02-25T17:00:00.000Z",
@@ -851,7 +1004,10 @@
     "email": "olivia.baker@example.com",
     "country": "United Kingdom",
     "portfolio": "https://www.linkedin.com/in/olivia-baker/",
-    "visaCategories": ["EB2-NIW", "O1"],
+    "visaCategories": [
+      "EB2-NIW",
+      "O1"
+    ],
     "message": "Message from Olivia",
     "status": "PENDING",
     "createdAt": "2025-02-25T17:10:00.000Z",

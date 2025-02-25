@@ -50,7 +50,7 @@ export async function updateLead(
   });
 
   if (!response.ok) {
-    return { ...prevState };
+    return { ...prevState, id: body.id };
   }
 
   const data = await response.json();

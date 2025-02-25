@@ -54,7 +54,7 @@ export default function Login() {
       <div className="mx-auto w-full flex justify-center">
         <AlmaLogo className="bg-white w-20 h-20" />
       </div>
-      <div className="max-w-sm mx-auto w-full">
+      <div className="max-w-sm mx-auto w-full px-4">
         <Form {...form}>
           <form
             onSubmit={form.handleSubmit(onSubmit)}
