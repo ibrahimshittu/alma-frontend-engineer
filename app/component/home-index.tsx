@@ -1,10 +1,7 @@
 "use client";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import {
-  assessmentFormSchema,
-  AssessmentFormData,
-} from "../../schemas/formSchema";
+import { leadFormSchema, LeadFormData } from "../../schemas/formSchema";
 import AlmaLogo from "@/components/icon/icon";
 import Image from "next/image";
 import {
@@ -33,11 +30,11 @@ export default function Home() {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<AssessmentFormData>({
-    resolver: zodResolver(assessmentFormSchema),
+  } = useForm<LeadFormData>({
+    resolver: zodResolver(leadFormSchema),
   });
 
-  const onSubmit = async (data: AssessmentFormData) => {
+  const onSubmit = async (data: LeadFormData) => {
     try {
       const response = await fetch("/api/lead", {
         method: "POST",
@@ -61,14 +58,15 @@ export default function Home() {
     }
   };
 
-  const form = useForm<AssessmentFormData>({
-    resolver: zodResolver(assessmentFormSchema),
+  const form = useForm<LeadFormData>({
+    resolver: zodResolver(leadFormSchema),
     defaultValues: {
       firstName: "",
       lastName: "",
       email: "",
       country: "",
       portfolio: "",
+      cv: null,
       visaCategories: [],
       message: "",
     },
@@ -80,13 +78,7 @@ export default function Home() {
     <div className="min-h-screen bg-white">
       <header className="bg-[#d8dea6] py-32 text-center relative overflow-hidden">
         <div className="absolute top-[-5rem] left-[-24rem] w-full h-full">
-          <Image
-            src="/home/bg-icon.webp"
-            width={680}
-            height={108}
-            objectPosition="center"
-            alt=""
-          />
+          <Image src="/home/bg-icon.webp" width={680} height={108} alt="" />
         </div>
 
         <div className="max-w-3xl mx-auto flex flex-col items-start justify-start space-y-2 pl-6">
@@ -107,7 +99,6 @@ export default function Home() {
               objectFit="cover"
               width={90}
               height={18}
-              objectPosition="center"
               alt=""
             />
           </div>
@@ -210,6 +201,24 @@ export default function Home() {
               )}
             />
 
+            <FormField
+              control={form.control}
+              name="cv"
+              render={({ field }) => (
+                <FormItem>
+                  <FormControl>
+                    <Input
+                      type="file"
+                      accept=".pdf,.doc,.docx"
+                      placeholder="Resume/CV"
+                      {...register("cv")}
+                    />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+
             {/* Visa Categories (Multiple Checkboxes) */}
             <FormField
               control={form.control}
@@ -222,7 +231,6 @@ export default function Home() {
                       objectFit="cover"
                       width={90}
                       height={18}
-                      objectPosition="center"
                       alt=""
                     />
                   </div>
@@ -278,7 +286,6 @@ export default function Home() {
                       objectFit="cover"
                       width={90}
                       height={18}
-                      objectPosition="center"
                       alt=""
                     />
                   </div>

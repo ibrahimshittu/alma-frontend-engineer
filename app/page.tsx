@@ -1,4 +1,4 @@
-import Home from "./component/page-index";
+import Home from "./component/home-index";
 
 function HomeRoute() {
   return <Home />;
