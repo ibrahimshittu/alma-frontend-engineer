@@ -16,7 +16,7 @@ import { Input } from "@/components/ui/input";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
-import countries from "../../db/country.json";
+import countries from "@/db/country.json";
 import {
   Select,
   SelectContent,
