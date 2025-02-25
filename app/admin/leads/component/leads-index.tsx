@@ -39,6 +39,12 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 
 const ITEMS_PER_PAGE = 15;
 
@@ -234,8 +240,7 @@ export default function LeadsPage({ allLeads }: { allLeads: Lead[] }) {
                   >
                     Country {renderSortIcon("country")}
                   </TableHead>
-                  {/* add an action */}
-                  <TableHead className="select-none">Actions</TableHead>
+                  <TableHead className="select-none"></TableHead>
                 </TableRow>
               </TableHeader>
 
@@ -255,14 +260,41 @@ export default function LeadsPage({ allLeads }: { allLeads: Lead[] }) {
                         .replace(/\b\w/g, (l) => l.toUpperCase())}
                     </TableCell>
                     <TableCell>{lead.country}</TableCell>
-                    <TableCell>
+                    <TableCell className="flex items-center justify-start pr-4">
                       <DropdownMenu>
-                        <DropdownMenuTrigger>
-                          <MoreVertical size={16} className="" />
-                        </DropdownMenuTrigger>
-                        <DropdownMenuContent>
+                        <TooltipProvider>
+                          <Tooltip>
+                            <TooltipTrigger asChild>
+                              <div className="relative">
+                                <DropdownMenuTrigger
+                                  disabled={lead.status === "REACHED_OUT"}
+                                  className={`${
+                                    lead.status === "REACHED_OUT"
+                                      ? "pointer-events-none cursor-not-allowed"
+                                      : ""
+                                  }`}
+                                >
+                                  <MoreVertical
+                                    size={16}
+                                    className="cursor-pointer mt-3"
+                                  />
+                                </DropdownMenuTrigger>
+                              </div>
+                            </TooltipTrigger>
+
+                            {lead.status === "REACHED_OUT" && (
+                              <TooltipContent side="right">
+                                <p className="text-xs">
+                                  Lead has been reached out.
+                                </p>
+                              </TooltipContent>
+                            )}
+                          </Tooltip>
+                        </TooltipProvider>
+
+                        <DropdownMenuContent align="end">
                           <DropdownMenuItem className="cursor-pointer h-10">
-                            View Details
+                            Update Status
                           </DropdownMenuItem>
                         </DropdownMenuContent>
                       </DropdownMenu>

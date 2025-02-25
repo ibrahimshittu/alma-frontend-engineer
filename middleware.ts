@@ -35,7 +35,6 @@ export async function middleware(req: NextRequest) {
       const loginUrl = req.nextUrl.clone();
       loginUrl.pathname = "/admin/login";
       const response = NextResponse.redirect(loginUrl);
-      response.cookies.set("token", "", { expires: new Date(0) });
       return response;
     }
   }
