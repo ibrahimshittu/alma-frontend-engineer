@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { startTransition, useActionState, useEffect, useState } from "react";
 import Link from "next/link";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -26,29 +26,27 @@ import {
   Search,
   ChevronRight,
   ChevronLeft,
-  MoreVertical,
+  MoreHorizontal,
 } from "lucide-react";
 import AlmaLogo from "@/components/icon/icon";
 import { usePathname } from "next/navigation";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { Lead } from "@/schemas/types";
+import { Lead, updateLeadStatus } from "@/schemas/types";
 import dayjs from "dayjs";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
+  DropdownMenuLabel,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from "@/components/ui/tooltip";
+import { updateLead } from "../../actions";
+import { toast } from "sonner";
 
 const ITEMS_PER_PAGE = 15;
 
 export default function LeadsPage({ allLeads }: { allLeads: Lead[] }) {
+  const [leads, setLeads] = useState<Lead[]>(allLeads);
   const [currentPage, setCurrentPage] = useState(1);
   const pathname = usePathname();
 
@@ -63,6 +61,16 @@ export default function LeadsPage({ allLeads }: { allLeads: Lead[] }) {
   const [searchTerm, setSearchTerm] = useState("");
   const [statusFilter, setStatusFilter] = useState("");
 
+  const initialstate: updateLeadStatus = {
+    id: "",
+    status: "PENDING",
+  };
+
+  const [updateLeadState, updateLeadAction] = useActionState(
+    updateLead,
+    initialstate
+  );
+
   function handleSort(column: keyof Lead) {
     let direction: "asc" | "desc" = "asc";
 
@@ -73,7 +81,7 @@ export default function LeadsPage({ allLeads }: { allLeads: Lead[] }) {
     setSorting({ column, direction });
   }
 
-  const displayedLeads = [...allLeads]
+  const displayedLeads = [...leads]
     .filter((lead) => {
       if (
         statusFilter &&
@@ -136,6 +144,23 @@ export default function LeadsPage({ allLeads }: { allLeads: Lead[] }) {
   const pageStart = (currentPage - 1) * ITEMS_PER_PAGE;
   const pageEnd = pageStart + ITEMS_PER_PAGE;
   const paginatedLeads = displayedLeads.slice(pageStart, pageEnd);
+
+  useEffect(() => {
+    if (updateLeadState.status === "REACHED_OUT") {
+      const updatedLeads = leads.map((lead) => {
+        if (lead.id === updateLeadState.id) {
+          return { ...lead, status: "REACHED_OUT" as "REACHED_OUT" };
+        }
+        return lead;
+      });
+      setLeads(updatedLeads);
+
+      toast.success("Lead status updated successfully");
+      return;
+    }
+
+    toast.error("Failed to update lead status");
+  }, [updateLeadState]);
 
   return (
     <div className="relative flex min-h-screen bg-white">
@@ -212,10 +237,10 @@ export default function LeadsPage({ allLeads }: { allLeads: Lead[] }) {
 
         {/* LEADS TABLE */}
         <div className="border rounded-xl overflow-hidden">
-          <ScrollArea className="h-[570px]">
+          <ScrollArea className="h-[calc(100vh-17rem)]">
             <Table className="w-full">
-              <TableHeader className="sticky top-0 bg-white">
-                <TableRow className="h-12 ">
+              <TableHeader className="sticky top-0">
+                <TableRow className="h-12 bg-white">
                   <TableHead
                     onClick={() => handleSort("firstName")}
                     className="cursor-pointer select-none pl-4"
@@ -262,38 +287,26 @@ export default function LeadsPage({ allLeads }: { allLeads: Lead[] }) {
                     <TableCell>{lead.country}</TableCell>
                     <TableCell className="flex items-center justify-start pr-4">
                       <DropdownMenu>
-                        <TooltipProvider>
-                          <Tooltip>
-                            <TooltipTrigger asChild>
-                              <div className="relative">
-                                <DropdownMenuTrigger
-                                  disabled={lead.status === "REACHED_OUT"}
-                                  className={`${
-                                    lead.status === "REACHED_OUT"
-                                      ? "pointer-events-none cursor-not-allowed"
-                                      : ""
-                                  }`}
-                                >
-                                  <MoreVertical
-                                    size={16}
-                                    className="cursor-pointer mt-3"
-                                  />
-                                </DropdownMenuTrigger>
-                              </div>
-                            </TooltipTrigger>
-
-                            {lead.status === "REACHED_OUT" && (
-                              <TooltipContent side="right">
-                                <p className="text-xs">
-                                  Lead has been reached out.
-                                </p>
-                              </TooltipContent>
-                            )}
-                          </Tooltip>
-                        </TooltipProvider>
-
+                        <DropdownMenuTrigger
+                          asChild
+                          disabled={lead.status === "REACHED_OUT"}
+                        >
+                          <Button variant="ghost" className="h-8 w-8 p-0">
+                            <MoreHorizontal className="h-4 w-4" />
+                          </Button>
+                        </DropdownMenuTrigger>
                         <DropdownMenuContent align="end">
-                          <DropdownMenuItem className="cursor-pointer h-10">
+                          <DropdownMenuLabel>Actions</DropdownMenuLabel>
+                          <DropdownMenuItem
+                            onClick={() => {
+                              const formData = new FormData();
+                              formData.append("id", lead.id);
+                              formData.append("status", "REACHED_OUT");
+                              startTransition(() => {
+                                updateLeadAction(formData);
+                              });
+                            }}
+                          >
                             Update Status
                           </DropdownMenuItem>
                         </DropdownMenuContent>

@@ -1,5 +1,6 @@
 [
   {
+    "id": "q3x9lz4bd",
     "firstName": "Ibrahim",
     "lastName": "Shittu",
     "email": "ibrahim@tryalma.com",
@@ -10,11 +11,12 @@
       "O1"
     ],
     "message": "rrr",
-    "status": "PENDING",
+    "status": "REACHED_OUT",
     "createdAt": "2025-02-25T11:20:28.017Z",
     "cv": "/uploads/Ibrahim_Shittu_1740482428017.pdf"
   },
   {
+    "id": "u5t0z9m1k",
     "firstName": "Ibrahim",
     "lastName": "Shittu",
     "email": "shittu@tryalma.com",
@@ -24,11 +26,12 @@
       "O1"
     ],
     "message": "help me out",
-    "status": "PENDING",
+    "status": "REACHED_OUT",
     "createdAt": "2025-02-25T12:02:07.059Z",
     "cv": "/uploads/Ibrahim_Shittu_1740484927059.pdf"
   },
   {
+    "id": "p8w2r3s6d",
     "firstName": "Ibrahim",
     "lastName": "Shittu",
     "email": "ibshittu01@gmail.com",
@@ -38,11 +41,12 @@
       "I don't know"
     ],
     "message": "hello",
-    "status": "PENDING",
+    "status": "REACHED_OUT",
     "createdAt": "2025-02-25T12:08:45.477Z",
     "cv": "/uploads/Ibrahim_Shittu_1740485325477.pdf"
   },
   {
+    "id": "e9m4q2v8x",
     "firstName": "Maria",
     "lastName": "Gonzalez",
     "email": "maria.gonzalez@example.com",
@@ -57,6 +61,7 @@
     "cv": "/uploads/Maria_Gonzalez_1740490522000.pdf"
   },
   {
+    "id": "n7a2b5c1d",
     "firstName": "Ethan",
     "lastName": "Smith",
     "email": "ethan.smith@example.com",
@@ -71,6 +76,7 @@
     "cv": "/uploads/Ethan_Smith_1740494571000.pdf"
   },
   {
+    "id": "v4j8p1t3q",
     "firstName": "Yuki",
     "lastName": "Sato",
     "email": "yuki.sato@example.com",
@@ -86,6 +92,7 @@
     "cv": "/uploads/Yuki_Sato_1740497294000.pdf"
   },
   {
+    "id": "k9u3x5m7r",
     "firstName": "Zhang",
     "lastName": "Wei",
     "email": "zhang.wei@example.com",
@@ -101,6 +108,7 @@
     "cv": "/uploads/Zhang_Wei_1740503519000.pdf"
   },
   {
+    "id": "z2b6h8p0f",
     "firstName": "Amelie",
     "lastName": "Durand",
     "email": "amelie.durand@example.com",
@@ -115,6 +123,7 @@
     "cv": "/uploads/Amelie_Durand_1740510393000.pdf"
   },
   {
+    "id": "c5d1k9q2t",
     "firstName": "Fatima",
     "lastName": "Khan",
     "email": "fatima.khan@example.com",
@@ -129,6 +138,7 @@
     "cv": "/uploads/Fatima_Khan_1740512447000.pdf"
   },
   {
+    "id": "m3p7u0e4r",
     "firstName": "Mateo",
     "lastName": "Lopez",
     "email": "mateo.lopez@example.com",
@@ -143,6 +153,7 @@
     "cv": "/uploads/Mateo_Lopez_1740517990000.pdf"
   },
   {
+    "id": "r8v1x6c3z",
     "firstName": "Ibrahim",
     "lastName": "Shittu",
     "email": "ibrahim@tryalma.com",
@@ -158,6 +169,7 @@
     "cv": "/uploads/Ibrahim_Shittu_1740482428017.pdf"
   },
   {
+    "id": "f2j7m4q9l",
     "firstName": "Ibrahim",
     "lastName": "Shittu",
     "email": "shittu@tryalma.com",
@@ -172,6 +184,7 @@
     "cv": "/uploads/Ibrahim_Shittu_1740484927059.pdf"
   },
   {
+    "id": "t9w3z2b6d",
     "firstName": "Ibrahim",
     "lastName": "Shittu",
     "email": "ibrahim@tryalma.com",
@@ -187,6 +200,7 @@
     "cv": "/uploads/Ibrahim_Shittu_1740482428017.pdf"
   },
   {
+    "id": "l1c8v5k2x",
     "firstName": "Ibrahim",
     "lastName": "Shittu",
     "email": "shittu@tryalma.com",
@@ -201,6 +215,7 @@
     "cv": "/uploads/Ibrahim_Shittu_1740484927059.pdf"
   },
   {
+    "id": "s4q9p7e1f",
     "firstName": "Ibrahim",
     "lastName": "Shittu",
     "email": "ibrahim@tryalma.com",
@@ -216,6 +231,7 @@
     "cv": "/uploads/Ibrahim_Shittu_1740482428017.pdf"
   },
   {
+    "id": "b3z8t2m5q",
     "firstName": "Ibrahim",
     "lastName": "Shittu",
     "email": "shittu@tryalma.com",
@@ -228,36 +244,5 @@
     "status": "PENDING",
     "createdAt": "2025-02-25T12:02:07.059Z",
     "cv": "/uploads/Ibrahim_Shittu_1740484927059.pdf"
-  },
-  {
-    "id": "xdatfc8is",
-    "firstName": "Ibrahim",
-    "lastName": "Shittu",
-    "email": "ibrahim01@tryalma.com",
-    "country": "Austria",
-    "portfolio": "https://www.linkedin.com/in/ibrahimshittu/",
-    "visaCategories": [
-      "EB1-A"
-    ],
-    "message": "I am ibrahim",
-    "status": "PENDING",
-    "createdAt": "2025-02-25T14:52:32.444Z",
-    "cv": "/uploads/Ibrahim_Shittu_1740495152444.doc"
-  },
-  {
-    "id": "xjrky2xpj",
-    "firstName": "Ibrahim",
-    "lastName": "Shittu",
-    "email": "ibshittu1@tryalma.com",
-    "country": "Armenia",
-    "portfolio": "https://www.linkedin.com/in/ibrahimshittu/",
-    "visaCategories": [
-      "EB1-A",
-      "I don't know"
-    ],
-    "message": "I am fine",
-    "status": "PENDING",
-    "createdAt": "2025-02-25T14:53:39.345Z",
-    "cv": "/uploads/Ibrahim_Shittu_1740495219345.pdf"
   }
 ]

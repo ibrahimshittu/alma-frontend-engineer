@@ -17,3 +17,5 @@ export type Admin = {
   email: string;
   password: string;
 };
+
+export type updateLeadStatus = Pick<Lead, "id" | "status">;

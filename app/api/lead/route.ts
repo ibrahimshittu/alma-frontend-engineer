@@ -6,7 +6,7 @@ import { readLeads, saveLeads, ensureDirExists } from "@/lib/helpers";
 import { getFieldValue } from "@/lib/helpers";
 import { Readable } from "stream";
 import { IncomingMessage } from "http";
-import { Lead } from "@/schemas/types";
+import { Lead, updateLeadStatus } from "@/schemas/types";
 import { verifyAuthToken } from "@/lib/auth";
 
 export const config = {
@@ -135,6 +135,14 @@ export async function GET(request: Request): Promise<NextResponse> {
 }
 
 export async function PUT(request: Request): Promise<NextResponse> {
+  let body: updateLeadStatus;
+  try {
+    body = await request.json();
+    console.log("PUT request received", body);
+  } catch (error) {
+    return NextResponse.json({ message: "Invalid JSON body" }, { status: 400 });
+  }
+
   try {
     verifyAuthToken(request);
   } catch (error) {
@@ -142,13 +150,6 @@ export async function PUT(request: Request): Promise<NextResponse> {
       { message: (error as Error).message },
       { status: 401 }
     );
-  }
-
-  let body: Lead;
-  try {
-    body = await request.json();
-  } catch (error) {
-    return NextResponse.json({ message: "Invalid JSON body" }, { status: 400 });
   }
 
   if (!body.id) {
