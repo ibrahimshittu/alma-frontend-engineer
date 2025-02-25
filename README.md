@@ -123,14 +123,6 @@ Email: ibrahim@tryalma.com
 Password: Password123$
 ```
 
-## Running Tests
-
-To run unit tests:
-
-```sh
-npm test
-```
-
 ## System Design
 
 ## Design Decisions

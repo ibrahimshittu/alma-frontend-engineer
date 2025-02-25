@@ -1012,5 +1012,20 @@
     "status": "REACHED_OUT",
     "createdAt": "2025-02-25T17:10:00.000Z",
     "cv": "/uploads/Olivia_Baker_1740521400000.pdf"
+  },
+  {
+    "id": "h9jntdrml",
+    "firstName": "Ibrahim",
+    "lastName": "Shittu",
+    "email": "ibrahim@ibrahim.com",
+    "country": "Nigeria",
+    "portfolio": "https://www.linkedin.com/in/ibrahimshittu/",
+    "visaCategories": [
+      "EB1-A"
+    ],
+    "message": "i need a visa",
+    "status": "PENDING",
+    "createdAt": "2025-02-25T22:37:20.435Z",
+    "cv": "/uploads/Ibrahim_Shittu_1740523040435.docx"
   }
 ]

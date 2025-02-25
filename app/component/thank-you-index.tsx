@@ -7,7 +7,7 @@ export default function ThankYou() {
   const route = useRouter();
   return (
     <div className="flex items-center justify-center h-screen bg-white">
-      <div className="text-center">
+      <div className="text-center px-4">
         <div className="mx-auto w-full flex justify-center">
           <Image
             src="/home/info-icon.png"
