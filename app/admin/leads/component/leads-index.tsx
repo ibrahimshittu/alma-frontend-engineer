@@ -1,17 +1,9 @@
 "use client";
 
-import { startTransition, useActionState, useEffect, useState } from "react";
+import { useActionState, useEffect, useState } from "react";
 import Link from "next/link";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from "@/components/ui/table";
 import {
   Select,
   SelectContent,
@@ -26,24 +18,16 @@ import {
   Search,
   ChevronRight,
   ChevronLeft,
-  MoreHorizontal,
 } from "lucide-react";
 import AlmaLogo from "@/components/icon/icon";
 import { usePathname } from "next/navigation";
-import { ScrollArea } from "@/components/ui/scroll-area";
 import { Lead, updateLeadStatus } from "@/schemas/types";
-import dayjs from "dayjs";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
 import { updateLead } from "../../actions";
 import { toast } from "sonner";
+import LeadsTable from "./leads-table";
+import dayjs from "dayjs";
 
-const ITEMS_PER_PAGE = 15;
+const ITEMS_PER_PAGE = 25;
 
 export default function LeadsPage({ allLeads }: { allLeads: Lead[] }) {
   const [leads, setLeads] = useState<Lead[]>(allLeads);
@@ -157,9 +141,9 @@ export default function LeadsPage({ allLeads }: { allLeads: Lead[] }) {
 
       toast.success("Lead status updated successfully");
       return;
+    } else if (updateLeadState.status === "PENDING" && updateLeadState.id) {
+      toast.error("Failed to update lead status");
     }
-
-    toast.error("Failed to update lead status");
   }, [updateLeadState]);
 
   return (
@@ -235,95 +219,15 @@ export default function LeadsPage({ allLeads }: { allLeads: Lead[] }) {
           </Select>
         </div>
 
-        {/* LEADS TABLE */}
         <div className="border rounded-xl overflow-hidden">
-          <ScrollArea className="h-[calc(100vh-17rem)]">
-            <Table className="w-full">
-              <TableHeader className="sticky top-0">
-                <TableRow className="h-12 bg-white">
-                  <TableHead
-                    onClick={() => handleSort("firstName")}
-                    className="cursor-pointer select-none pl-4"
-                  >
-                    Name {renderSortIcon("firstName")}
-                  </TableHead>
-                  <TableHead
-                    onClick={() => handleSort("createdAt")}
-                    className="cursor-pointer select-none"
-                  >
-                    Submitted {renderSortIcon("createdAt")}
-                  </TableHead>
-                  <TableHead
-                    onClick={() => handleSort("status")}
-                    className="cursor-pointer select-none"
-                  >
-                    Status {renderSortIcon("status")}
-                  </TableHead>
-                  <TableHead
-                    onClick={() => handleSort("country")}
-                    className="cursor-pointer select-none"
-                  >
-                    Country {renderSortIcon("country")}
-                  </TableHead>
-                  <TableHead className="select-none"></TableHead>
-                </TableRow>
-              </TableHeader>
+          <LeadsTable
+            paginatedLeads={paginatedLeads}
+            updateLeadAction={updateLeadAction}
+            renderSortIcon={renderSortIcon}
+            handleSort={handleSort}
+          />
 
-              <TableBody>
-                {paginatedLeads.map((lead, idx) => (
-                  <TableRow key={idx} className="h-14">
-                    <TableCell className="pl-4">
-                      {lead.firstName} {lead.lastName}
-                    </TableCell>
-                    <TableCell>
-                      {dayjs(lead.createdAt).format("MM/DD/YYYY, hh:mm A")}
-                    </TableCell>
-                    <TableCell>
-                      {lead.status
-                        .replace(/_/g, " ")
-                        .toLowerCase()
-                        .replace(/\b\w/g, (l) => l.toUpperCase())}
-                    </TableCell>
-                    <TableCell>{lead.country}</TableCell>
-                    <TableCell className="flex items-center justify-start pr-4">
-                      <DropdownMenu>
-                        <DropdownMenuTrigger
-                          asChild
-                          disabled={lead.status === "REACHED_OUT"}
-                        >
-                          <Button variant="ghost" className="h-8 w-8 p-0">
-                            <MoreHorizontal className="h-4 w-4" />
-                          </Button>
-                        </DropdownMenuTrigger>
-                        <DropdownMenuContent align="end">
-                          <DropdownMenuLabel>Actions</DropdownMenuLabel>
-                          <DropdownMenuItem
-                            onClick={() => {
-                              const formData = new FormData();
-                              formData.append("id", lead.id);
-                              formData.append("status", "REACHED_OUT");
-                              startTransition(() => {
-                                updateLeadAction(formData);
-                              });
-                            }}
-                          >
-                            Update Status
-                          </DropdownMenuItem>
-                        </DropdownMenuContent>
-                      </DropdownMenu>
-                    </TableCell>
-                  </TableRow>
-                ))}
-                {paginatedLeads.length === 0 && (
-                  <TableRow>
-                    <TableCell colSpan={4} className="text-center py-4">
-                      No leads found.
-                    </TableCell>
-                  </TableRow>
-                )}
-              </TableBody>
-            </Table>
-          </ScrollArea>
+          {/* PAGINATION */}
           <div className="flex items-center justify-end space-x-2 px-4 py-4 border-t border-gray-200">
             <Button
               variant="ghost"
