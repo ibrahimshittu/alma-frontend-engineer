@@ -6,7 +6,7 @@ import { readLeads, saveLeads, ensureDirExists } from "@/lib/helpers";
 import { getFieldValue } from "@/lib/helpers";
 import { Readable } from "stream";
 import { IncomingMessage } from "http";
-import { LeadData } from "@/schemas/types";
+import { Lead } from "@/schemas/types";
 import jwt from "jsonwebtoken";
 
 export const config = {
@@ -56,7 +56,7 @@ export async function POST(request: Request) {
       visaCategories = visaField;
     }
 
-    const newLead: LeadData = {
+    const newLead: Lead = {
       firstName: getFieldValue(fields.firstName),
       lastName: getFieldValue(fields.lastName),
       email: getFieldValue(fields.email),
@@ -97,7 +97,7 @@ export async function POST(request: Request) {
       newLead.cv = `/uploads/${newFileName}`;
     }
 
-    let leads: LeadData[] = await readLeads();
+    let leads: Lead[] = await readLeads();
     leads.push(newLead);
     await saveLeads(leads);
 
@@ -139,7 +139,7 @@ export async function GET(request: Request) {
   }
 
   try {
-    const leads: LeadData[] = await readLeads();
+    const leads: Lead[] = await readLeads();
     return NextResponse.json({ message: "Success", leads }, { status: 200 });
   } catch (error) {
     console.error("Error fetching leads:", error);

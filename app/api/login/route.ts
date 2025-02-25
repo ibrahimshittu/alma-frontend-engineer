@@ -1,33 +1,29 @@
 import { NextResponse } from "next/server";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
-import users from "@/db/users.json";
+import admins from "@/db/admin.json";
+import { Admin } from "@/schemas/types";
 
-interface User {
-  id: number;
-  email: string;
-  password: string;
-}
+const SECRET_KEY = process.env.JWT_SECRET || "";
 
-export async function POST(request: Request): Promise<Response> {
+export async function POST(request: Request): Promise<NextResponse> {
   try {
-    // Parse the incoming JSON body
     const { email, password } = (await request.json()) as {
       email: string;
       password: string;
     };
 
-    // Find the user in the mock database
-    const user = (users as User[]).find((u) => u.email === email);
-    if (!user) {
+    const admin = (admins as Admin[]).find((u) => u.email === email);
+    if (!admin) {
       return NextResponse.json(
         { message: "Invalid email or password" },
         { status: 401 }
       );
     }
 
-    // Compare the provided password with the stored hashed password
-    const isMatch = await bcrypt.compare(password, user.password);
+    console.log("admin found:", admin);
+
+    const isMatch = await bcrypt.compare(password, admin.password);
     if (!isMatch) {
       return NextResponse.json(
         { message: "Invalid email or password" },
@@ -35,17 +31,22 @@ export async function POST(request: Request): Promise<Response> {
       );
     }
 
-    // Generate a JWT token (replace 'MY_SUPER_SECRET' with your secret or use process.env.JWT_SECRET)
-    const token = jwt.sign(
-      { sub: user.id, email: user.email },
-      process.env.JWT_SECRET || "MY_SUPER_SECRET",
-      { expiresIn: "1h" }
-    );
+    const token = jwt.sign({ sub: admin.id, email: admin.email }, SECRET_KEY, {
+      expiresIn: "1h",
+    });
 
-    return NextResponse.json(
-      { token, message: "Login successful" },
+    const res = NextResponse.json(
+      { message: "Login successful" },
       { status: 200 }
     );
+    res.cookies.set("token", token, {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === "production",
+      path: "/",
+      maxAge: 60 * 60,
+    });
+
+    return res;
   } catch (error: any) {
     return NextResponse.json(
       { message: "Something went wrong", error: error.message },

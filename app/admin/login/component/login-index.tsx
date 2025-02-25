@@ -8,14 +8,14 @@ import {
   FormControl,
   FormField,
   FormItem,
-  FormLabel,
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import Image from "next/image";
 import AlmaLogo from "@/components/icon/icon";
 import { useState } from "react";
 import { Eye, EyeClosed } from "lucide-react";
+import { toast } from "sonner";
+import { useRouter } from "next/navigation";
 
 export default function Login() {
   const [showPassword, setShowPassword] = useState(false);
@@ -27,28 +27,25 @@ export default function Login() {
     },
   });
 
+  const router = useRouter();
+
   const onSubmit = async (data: LoginFormData) => {
-    console.log("Login data:", data);
-    try {
-      const response = await fetch("/api/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data),
-      });
+    const response = await fetch("/api/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
 
-      if (!response.ok) {
-        const errorData = await response.json();
-        console.error("Login error:", errorData);
-        return;
-      }
-
-      // Handle successful login (e.g., navigate to dashboard)
-      console.log("Logged in successfully!");
-    } catch (error) {
-      console.error("Unexpected error:", error);
+    if (!response.ok) {
+      toast.error("Invalid email or password, please try again.");
+      return;
     }
+
+    const { token } = await response.json();
+    document.cookie = `token=${token};max-age=3600;path=/`;
+    router.push("/leads");
   };
 
   return (
@@ -103,9 +100,12 @@ export default function Login() {
               )}
             />
 
-            {/* Submit Button */}
-            <Button type="submit" className="w-full h-11">
-              Login
+            <Button
+              type="submit"
+              className="w-full h-11"
+              disabled={form.formState.isSubmitting}
+            >
+              {form.formState.isSubmitting ? "Loading..." : "Login"}
             </Button>
           </form>
         </Form>

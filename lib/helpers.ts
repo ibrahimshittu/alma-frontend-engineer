@@ -1,4 +1,4 @@
-import { LeadData } from "@/schemas/types";
+import { Lead } from "@/schemas/types";
 import fs from "fs/promises";
 import path from "path";
 
@@ -12,7 +12,7 @@ export async function ensureDirExists(dir: string) {
   }
 }
 
-export async function readLeads(): Promise<LeadData[]> {
+export async function readLeads(): Promise<Lead[]> {
   try {
     const data = await fs.readFile(leadsFilePath, "utf8");
     return JSON.parse(data);
@@ -21,7 +21,7 @@ export async function readLeads(): Promise<LeadData[]> {
   }
 }
 
-export async function saveLeads(leads: LeadData[]): Promise<void> {
+export async function saveLeads(leads: Lead[]): Promise<void> {
   await fs.writeFile(leadsFilePath, JSON.stringify(leads, null, 2));
 }
 

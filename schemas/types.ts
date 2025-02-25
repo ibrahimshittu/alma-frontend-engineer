@@ -1,4 +1,4 @@
-export type LeadData = {
+export type Lead = {
   firstName: string;
   lastName: string;
   email: string;
@@ -9,4 +9,10 @@ export type LeadData = {
   status?: "PENDING" | "REACHED_OUT";
   cv?: string;
   createdAt: string;
+};
+
+export type Admin = {
+  id: number;
+  email: string;
+  password: string;
 };
