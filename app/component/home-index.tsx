@@ -80,15 +80,15 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-white">
-      <header className="bg-[#d8dea6] py-32 text-center relative overflow-hidden">
-        <div className="absolute top-[-5rem] left-[-24rem] w-full h-full">
+      <header className="bg-[#d8dea6] py-10 px-4 md:py-32 text-center relative overflow-hidden">
+        <div className="absolute top-[-5rem] left-[-24rem] w-full h-full hidden xl:block">
           <Image src="/home/bg-icon.webp" width={680} height={108} alt="" />
         </div>
 
-        <div className="max-w-3xl mx-auto flex flex-col items-start justify-start space-y-2 pl-6">
+        <div className="max-w-3xl mx-auto flex flex-col items-center lg:items-start justify-start space-y-2 p-0 xl:pl-6">
           <AlmaLogo className="bg-[#d8dea6] w-20 h-20" />
 
-          <h1 className="text-6xl font-extrabold text-[#010000] text-left">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-[#010000] text-center lg:text-left">
             <span className="block">Get An Assessment</span>
             Of Your Immigration Case
           </h1>
@@ -110,7 +110,8 @@ export default function Home() {
             Want to understand your visa options?
           </h2>
           <p className=" text-[#010000] font-bold text-base">
-            Submit the form below and our experienced attorneys will <br />{" "}
+            Submit the form below and our experienced attorneys will{" "}
+            <br className="hidden md:block" />
             review your information and send a preliminary assessment of your
             case based on your goals.
           </p>
