@@ -26,12 +26,19 @@ import {
   Search,
   ChevronRight,
   ChevronLeft,
+  MoreVertical,
 } from "lucide-react";
 import AlmaLogo from "@/components/icon/icon";
 import { usePathname } from "next/navigation";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Lead } from "@/schemas/types";
 import dayjs from "dayjs";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 const ITEMS_PER_PAGE = 15;
 
@@ -227,6 +234,8 @@ export default function LeadsPage({ allLeads }: { allLeads: Lead[] }) {
                   >
                     Country {renderSortIcon("country")}
                   </TableHead>
+                  {/* add an action */}
+                  <TableHead className="select-none">Actions</TableHead>
                 </TableRow>
               </TableHeader>
 
@@ -246,6 +255,18 @@ export default function LeadsPage({ allLeads }: { allLeads: Lead[] }) {
                         .replace(/\b\w/g, (l) => l.toUpperCase())}
                     </TableCell>
                     <TableCell>{lead.country}</TableCell>
+                    <TableCell>
+                      <DropdownMenu>
+                        <DropdownMenuTrigger>
+                          <MoreVertical size={16} className="" />
+                        </DropdownMenuTrigger>
+                        <DropdownMenuContent>
+                          <DropdownMenuItem className="cursor-pointer h-10">
+                            View Details
+                          </DropdownMenuItem>
+                        </DropdownMenuContent>
+                      </DropdownMenu>
+                    </TableCell>
                   </TableRow>
                 ))}
                 {paginatedLeads.length === 0 && (

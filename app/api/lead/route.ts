@@ -103,7 +103,7 @@ export async function POST(request: Request) {
 
     return NextResponse.json(
       { message: "Lead saved successfully", lead: newLead },
-      { status: 200 }
+      { status: 201 }
     );
   } catch (error) {
     return NextResponse.json(
@@ -144,7 +144,7 @@ export async function PUT(request: Request): Promise<NextResponse> {
     );
   }
 
-  let body: Partial<Lead> & { id: string };
+  let body: Lead;
   try {
     body = await request.json();
   } catch (error) {
