@@ -53,6 +53,7 @@ Create a `.env` file in the root directory and add:
 NEXT_PUBLIC_BASE_URL=http://localhost:3000
 JWT_SECRET=your_secret_key
 ```
+You can generate JWT secrets via [JWT Secret](https://jwtsecret.com/generate)
 
 ## API Routes
 
