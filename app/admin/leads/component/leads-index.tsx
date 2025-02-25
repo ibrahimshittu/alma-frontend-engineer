@@ -28,12 +28,16 @@ import { updateLead } from "../../actions";
 import { toast } from "sonner";
 import LeadsTable from "./leads-table";
 import dayjs from "dayjs";
+import { useLeadStore } from "@/store/lead-store";
 
 const ITEMS_PER_PAGE = 25;
 
 export default function LeadsPage({ allLeads }: { allLeads: Lead[] }) {
+  const { leads, updateLeadStatus, initializeLeads } = useLeadStore();
+
+  initializeLeads(allLeads);
+
   const [isSidebarOpen, setSidebarOpen] = useState(false);
-  const [leads, setLeads] = useState<Lead[]>(allLeads);
   const [currentPage, setCurrentPage] = useState(1);
   const pathname = usePathname();
 
@@ -134,13 +138,7 @@ export default function LeadsPage({ allLeads }: { allLeads: Lead[] }) {
 
   useEffect(() => {
     if (updateLeadState.status === "REACHED_OUT") {
-      const updatedLeads = leads.map((lead) => {
-        if (lead.id === updateLeadState.id) {
-          return { ...lead, status: "REACHED_OUT" as "REACHED_OUT" };
-        }
-        return lead;
-      });
-      setLeads(updatedLeads);
+      updateLeadStatus(updateLeadState.id, "REACHED_OUT");
 
       toast.success("Lead status updated successfully");
       return;

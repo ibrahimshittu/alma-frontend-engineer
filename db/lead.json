@@ -917,7 +917,7 @@
       "I don't know"
     ],
     "message": "Message from Ivan",
-    "status": "PENDING",
+    "status": "REACHED_OUT",
     "createdAt": "2025-02-25T16:10:00.000Z",
     "cv": "/uploads/Ivan_Baker_1740517800000.pdf"
   },
@@ -1009,7 +1009,7 @@
       "O1"
     ],
     "message": "Message from Olivia",
-    "status": "PENDING",
+    "status": "REACHED_OUT",
     "createdAt": "2025-02-25T17:10:00.000Z",
     "cv": "/uploads/Olivia_Baker_1740521400000.pdf"
   }

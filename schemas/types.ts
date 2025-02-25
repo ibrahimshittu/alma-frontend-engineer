@@ -19,3 +19,10 @@ export type Admin = {
 };
 
 export type updateLeadStatus = Pick<Lead, "id" | "status">;
+
+export type LeadsState = {
+  leads: Lead[];
+  setLeads: (leads: Lead[]) => void;
+  updateLeadStatus: (id: string, status: "PENDING" | "REACHED_OUT") => void;
+  initializeLeads: (initialLeads: Lead[]) => void;
+};
