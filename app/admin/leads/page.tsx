@@ -2,6 +2,7 @@ import React from "react";
 import Leads from "./component/leads-index";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
+import { getAllLeads } from "../actions";
 
 async function page() {
   const cookieStore = await cookies();
@@ -9,7 +10,11 @@ async function page() {
   if (!cookieStore.get("token")) {
     return redirect("/admin/login");
   }
-  return <Leads />;
+
+  const allLeads = await getAllLeads();
+
+  console.log("allLeads", allLeads);
+  return <Leads allLeads={allLeads} />;
 }
 
 export default page;

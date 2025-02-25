@@ -140,6 +140,7 @@ export async function GET(request: Request) {
 
   try {
     const leads: Lead[] = await readLeads();
+    console.log("leads", leads);
     return NextResponse.json({ message: "Success", leads }, { status: 200 });
   } catch (error) {
     console.error("Error fetching leads:", error);

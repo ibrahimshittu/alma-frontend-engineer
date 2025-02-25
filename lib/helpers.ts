@@ -2,7 +2,7 @@ import { Lead } from "@/schemas/types";
 import fs from "fs/promises";
 import path from "path";
 
-const leadsFilePath = path.join(process.cwd(), "db", "leads.json");
+const leadsFilePath = path.join(process.cwd(), "db", "lead.json");
 
 export async function ensureDirExists(dir: string) {
   try {

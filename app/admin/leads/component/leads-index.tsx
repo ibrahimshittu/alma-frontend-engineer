@@ -2,8 +2,6 @@
 
 import { useState } from "react";
 import Link from "next/link";
-
-// shadcn/ui components
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import {
@@ -21,9 +19,6 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { Separator } from "@/components/ui/separator";
-
-// Icons from lucide-react (or any icon library)
 import {
   ArrowUp,
   ArrowDown,
@@ -35,236 +30,15 @@ import {
 import AlmaLogo from "@/components/icon/icon";
 import { usePathname } from "next/navigation";
 import { ScrollArea } from "@/components/ui/scroll-area";
+import { Lead } from "@/schemas/types";
+import dayjs from "dayjs";
 
-// Define our Lead type
-interface Lead {
-  name: string;
-  submitted: string; // e.g. "02/02/2024, 2:45 PM"
-  status: string;
-  country: string;
-}
+const ITEMS_PER_PAGE = 15;
 
-// Initial leads data
-const initialLeads: Lead[] = [
-  {
-    name: "Jorge Ruiz",
-    submitted: "02/02/2024, 2:45 PM",
-    status: "Pending",
-    country: "Mexico",
-  },
-  {
-    name: "Bahar Zamir",
-    submitted: "02/02/2024, 2:45 PM",
-    status: "Pending",
-    country: "Mexico",
-  },
-  {
-    name: "Mary Lopez",
-    submitted: "02/02/2024, 2:45 PM",
-    status: "Pending",
-    country: "Brazil",
-  },
-  {
-    name: "Li Zijin",
-    submitted: "02/02/2024, 2:45 PM",
-    status: "Pending",
-    country: "South Korea",
-  },
-  {
-    name: "Mark Antonov",
-    submitted: "02/02/2024, 2:45 PM",
-    status: "Pending",
-    country: "Russia",
-  },
-  {
-    name: "Jane Ma",
-    submitted: "02/02/2024, 2:45 PM",
-    status: "Pending",
-    country: "Mexico",
-  },
-  {
-    name: "Anand Jain",
-    submitted: "02/02/2024, 2:45 PM",
-    status: "Reached Out",
-    country: "Mexico",
-  },
-  {
-    name: "Anna Voronova",
-    submitted: "02/02/2024, 2:45 PM",
-    status: "Pending",
-    country: "France",
-  },
-  {
-    name: "Anand Jain",
-    submitted: "02/02/2024, 2:45 PM",
-    status: "Reached Out",
-    country: "Mexico",
-  },
-  {
-    name: "Anna Voronova",
-    submitted: "02/02/2024, 2:45 PM",
-    status: "Pending",
-    country: "France",
-  },
-  {
-    name: "Anand Jain",
-    submitted: "02/02/2024, 2:45 PM",
-    status: "Reached Out",
-    country: "Mexico",
-  },
-  {
-    name: "Anna Voronova",
-    submitted: "02/02/2024, 2:45 PM",
-    status: "Pending",
-    country: "France",
-  },
-  {
-    name: "Anand Jain",
-    submitted: "02/02/2024, 2:45 PM",
-    status: "Reached Out",
-    country: "Mexico",
-  },
-  {
-    name: "Anna Voronova",
-    submitted: "02/02/2024, 2:45 PM",
-    status: "Pending",
-    country: "France",
-  },
-  {
-    name: "Anand Jain",
-    submitted: "02/02/2024, 2:45 PM",
-    status: "Reached Out",
-    country: "Mexico",
-  },
-  {
-    name: "Anna Voronova",
-    submitted: "02/02/2024, 2:45 PM",
-    status: "Pending",
-    country: "France",
-  },
-  {
-    name: "Anand Jain",
-    submitted: "02/02/2024, 2:45 PM",
-    status: "Reached Out",
-    country: "Mexico",
-  },
-  {
-    name: "Anna Voronova",
-    submitted: "02/02/2024, 2:45 PM",
-    status: "Pending",
-    country: "France",
-  },
-  {
-    name: "Anand Jain",
-    submitted: "02/02/2024, 2:45 PM",
-    status: "Reached Out",
-    country: "Mexico",
-  },
-  {
-    name: "Anna Voronova",
-    submitted: "02/02/2024, 2:45 PM",
-    status: "Pending",
-    country: "France",
-  },
-  {
-    name: "Anand Jain",
-    submitted: "02/02/2024, 2:45 PM",
-    status: "Reached Out",
-    country: "Mexico",
-  },
-  {
-    name: "Anna Voronova",
-    submitted: "02/02/2024, 2:45 PM",
-    status: "Pending",
-    country: "France",
-  },
-  {
-    name: "Anand Jain",
-    submitted: "02/02/2024, 2:45 PM",
-    status: "Reached Out",
-    country: "Mexico",
-  },
-  {
-    name: "Anna Voronova",
-    submitted: "02/02/2024, 2:45 PM",
-    status: "Pending",
-    country: "France",
-  },
-  {
-    name: "Anand Jain",
-    submitted: "02/02/2024, 2:45 PM",
-    status: "Reached Out",
-    country: "Mexico",
-  },
-  {
-    name: "Anna Voronova",
-    submitted: "02/02/2024, 2:45 PM",
-    status: "Pending",
-    country: "France",
-  },
-  {
-    name: "Anand Jain",
-    submitted: "02/02/2024, 2:45 PM",
-    status: "Reached Out",
-    country: "Mexico",
-  },
-  {
-    name: "Anna Voronova",
-    submitted: "02/02/2024, 2:45 PM",
-    status: "Pending",
-    country: "France",
-  },
-  {
-    name: "Anand Jain",
-    submitted: "02/02/2024, 2:45 PM",
-    status: "Reached Out",
-    country: "Mexico",
-  },
-  {
-    name: "Anna Voronova",
-    submitted: "02/02/2024, 2:45 PM",
-    status: "Pending",
-    country: "France",
-  },
-  {
-    name: "Anand Jain",
-    submitted: "02/02/2024, 2:45 PM",
-    status: "Reached Out",
-    country: "Mexico",
-  },
-  {
-    name: "Anna Voronova",
-    submitted: "02/02/2024, 2:45 PM",
-    status: "Pending",
-    country: "France",
-  },
-  {
-    name: "Anand Jain",
-    submitted: "02/02/2024, 2:45 PM",
-    status: "Reached Out",
-    country: "Mexico",
-  },
-  {
-    name: "Anna Voronova",
-    submitted: "02/02/2024, 2:45 PM",
-    status: "Pending",
-    country: "France",
-  },
-];
-
-// Helper to parse date/time strings like "MM/DD/YYYY, HH:MM AM/PM" into a numeric value for sorting
-function parseDateString(dateStr: string): number {
-  // e.g., "02/02/2024, 2:45 PM" => new Date("02/02/2024 2:45 PM").getTime()
-  const [datePart, timePart] = dateStr.split(",");
-  return new Date(`${datePart.trim()} ${timePart.trim()}`).getTime();
-}
-
-export default function LeadsPage() {
+export default function LeadsPage({ allLeads }: { allLeads: Lead[] }) {
+  const [currentPage, setCurrentPage] = useState(1);
   const pathname = usePathname();
 
-  const [leads] = useState<Lead[]>(initialLeads);
-
-  // Sorting state: which column & direction
   const [sorting, setSorting] = useState<{
     column: keyof Lead | null;
     direction: "asc" | "desc";
@@ -273,18 +47,12 @@ export default function LeadsPage() {
     direction: "asc",
   });
 
-  // Search & status filter
   const [searchTerm, setSearchTerm] = useState("");
   const [statusFilter, setStatusFilter] = useState("");
 
-  /**
-   * Handle sorting when a column header is clicked
-   * - Toggles between ascending/descending if the same column is clicked again.
-   */
   function handleSort(column: keyof Lead) {
     let direction: "asc" | "desc" = "asc";
 
-    // If same column is clicked, toggle direction
     if (sorting.column === column && sorting.direction === "asc") {
       direction = "desc";
     }
@@ -292,16 +60,8 @@ export default function LeadsPage() {
     setSorting({ column, direction });
   }
 
-  /**
-   * Derive the final array of leads to display:
-   * 1. Filter by status
-   * 2. Filter by search term (name, country, status)
-   * 3. Sort by the active column/direction
-   */
-  const displayedLeads = [...leads]
-    // 1. Filter by status
+  const displayedLeads = [...allLeads]
     .filter((lead) => {
-      // If the status filter is not "all" and the lead's status doesn't match, filter it out.
       if (
         statusFilter &&
         statusFilter !== "All" &&
@@ -310,51 +70,42 @@ export default function LeadsPage() {
         return false;
       return true;
     })
-    // 2. Filter by search term (case-insensitive, matching name/country/status)
     .filter((lead) => {
       if (!searchTerm) return true;
       const lower = searchTerm.toLowerCase();
       return (
-        lead.name.toLowerCase().includes(lower) ||
+        lead.firstName.toLowerCase().includes(lower) ||
         lead.country.toLowerCase().includes(lower) ||
         lead.status.toLowerCase().includes(lower)
       );
     })
-    // 3. Sort by column if specified
     .sort((a, b) => {
-      if (!sorting.column) return 0; // no sorting active
+      if (!sorting.column) return 0;
 
-      let valA: string | number = a[sorting.column];
-      let valB: string | number = b[sorting.column];
+      let valA = a[sorting.column] as string | number;
+      let valB = b[sorting.column] as string | number;
 
-      // For date/time in "submitted" column
-      if (sorting.column === "submitted") {
-        valA = parseDateString(valA as string);
-        valB = parseDateString(valB as string);
+      if (sorting.column === "createdAt") {
+        valA = dayjs(valA).unix();
+        valB = dayjs(valB).unix();
       } else {
-        // For string columns, compare case-insensitively
         valA = String(valA).toLowerCase();
         valB = String(valB).toLowerCase();
       }
 
+      if (!valA) return 1;
+      if (!valB) return -1;
       if (valA < valB) return sorting.direction === "asc" ? -1 : 1;
       if (valA > valB) return sorting.direction === "asc" ? 1 : -1;
       return 0;
     });
 
-  /**
-   * Render the sorting icon for a given column.
-   * - Always visible: default to ArrowUpDown if not sorting that column.
-   * - Show ArrowUp or ArrowDown if it is the active sorting column.
-   */
   function renderSortIcon(column: keyof Lead) {
     if (sorting.column !== column) {
-      // Not sorting by this column => show neutral up/down icon
       return (
         <ArrowUpDown className="inline-block w-4 h-4 ml-1 text-gray-400" />
       );
     }
-    // Sorting this column => show direction
     return sorting.direction === "asc" ? (
       <ArrowUp className="inline-block w-4 h-4 ml-1" />
     ) : (
@@ -362,67 +113,16 @@ export default function LeadsPage() {
     );
   }
 
-  const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 15;
-
   const totalItems = displayedLeads.length;
-  const totalPages = Math.ceil(totalItems / itemsPerPage);
+  const totalPages = Math.ceil(totalItems / ITEMS_PER_PAGE);
 
-  // Ensure currentPage is not out of range (e.g., after filtering)
   if (currentPage > totalPages && totalPages > 0) {
     setCurrentPage(totalPages);
   }
 
-  // Calculate the leads to show on the current page
-  const pageStart = (currentPage - 1) * itemsPerPage;
-  const pageEnd = pageStart + itemsPerPage;
+  const pageStart = (currentPage - 1) * ITEMS_PER_PAGE;
+  const pageEnd = pageStart + ITEMS_PER_PAGE;
   const paginatedLeads = displayedLeads.slice(pageStart, pageEnd);
-
-  function renderPagination() {
-    if (totalPages <= 1) return null;
-
-    const pages = Array.from({ length: totalPages }, (_, i) => i + 1);
-
-    return (
-      <div className="flex items-center justify-end space-x-2">
-        <Button
-          variant="ghost"
-          size="sm"
-          onClick={() => setCurrentPage((p) => p - 1)}
-          disabled={currentPage === 1}
-        >
-          <ChevronLeft className="h-4 w-4" />
-        </Button>
-
-        {pages.map((page) => {
-          const isActive = page === currentPage;
-          return (
-            <Button
-              key={page}
-              size="sm"
-              className={
-                isActive
-                  ? "border shadow-none border-black bg-transparent text-black hover:text-white hover:bg-black"
-                  : "bg-white text-black border-none hover:bg-gray-100 shadow-none"
-              }
-              onClick={() => setCurrentPage(page)}
-            >
-              {page}
-            </Button>
-          );
-        })}
-
-        <Button
-          variant="ghost"
-          size="sm"
-          onClick={() => setCurrentPage((p) => p + 1)}
-          disabled={currentPage === totalPages}
-        >
-          <ChevronRight className="h-4 w-4" />
-        </Button>
-      </div>
-    );
-  }
 
   return (
     <div className="relative flex min-h-screen bg-white">
@@ -434,12 +134,11 @@ export default function LeadsPage() {
           <AlmaLogo className="bg-[transparent] w-20 h-20" />
         </div>
 
-        {/* Nav Items */}
         <nav className="flex-1 px-2 py-14 space-y-2">
           <Link
-            href="/leads"
+            href="/admin/leads"
             className={`block rounded-md px-3 py-2 text-base ${
-              pathname === "/leads"
+              pathname === "/admin/leads"
                 ? "font-bold text-gray-900"
                 : "font-medium text-gray-700"
             }`}
@@ -458,11 +157,9 @@ export default function LeadsPage() {
           </Link>
         </nav>
 
-        {/* Bottom Section (Admin) */}
         <div className="px-6 py-4 flex items-center space-x-4">
           <div className="w-10 h-10 flex items-center justify-center bg-gray-200 text-gray-600 rounded-full text-lg font-semibold">
-            {"A"}
-            {""}
+            A
           </div>
           <p className="text-sm font-bold text-gray-600">Admin</p>
         </div>
@@ -472,7 +169,6 @@ export default function LeadsPage() {
       <main className="flex-1 py-9 px-6 z-10">
         <h1 className="text-2xl font-bold mb-8">Leads</h1>
 
-        {/* Search & Filter Bar */}
         <div className="flex items-center gap-2 mb-4">
           <div className="relative max-w-xs w-full">
             <Input
@@ -486,7 +182,6 @@ export default function LeadsPage() {
             </div>
           </div>
 
-          {/* Status Filter (Select) */}
           <Select
             value={statusFilter}
             onValueChange={(val) => setStatusFilter(val)}
@@ -496,8 +191,8 @@ export default function LeadsPage() {
             </SelectTrigger>
             <SelectContent>
               <SelectItem value="All">All</SelectItem>
-              <SelectItem value="Pending">Pending</SelectItem>
-              <SelectItem value="Reached Out">Reached Out</SelectItem>
+              <SelectItem value="PENDING">Pending</SelectItem>
+              <SelectItem value="REACHED_OUT">Reached Out</SelectItem>
             </SelectContent>
           </Select>
         </div>
@@ -509,16 +204,16 @@ export default function LeadsPage() {
               <TableHeader className="sticky top-0 bg-white">
                 <TableRow className="h-12 ">
                   <TableHead
-                    onClick={() => handleSort("name")}
+                    onClick={() => handleSort("firstName")}
                     className="cursor-pointer select-none pl-4"
                   >
-                    Name {renderSortIcon("name")}
+                    Name {renderSortIcon("firstName")}
                   </TableHead>
                   <TableHead
-                    onClick={() => handleSort("submitted")}
+                    onClick={() => handleSort("createdAt")}
                     className="cursor-pointer select-none"
                   >
-                    Submitted {renderSortIcon("submitted")}
+                    Submitted {renderSortIcon("createdAt")}
                   </TableHead>
                   <TableHead
                     onClick={() => handleSort("status")}
@@ -538,9 +233,18 @@ export default function LeadsPage() {
               <TableBody>
                 {paginatedLeads.map((lead, idx) => (
                   <TableRow key={idx} className="h-14">
-                    <TableCell className="pl-4">{lead.name}</TableCell>
-                    <TableCell>{lead.submitted}</TableCell>
-                    <TableCell>{lead.status}</TableCell>
+                    <TableCell className="pl-4">
+                      {lead.firstName} {lead.lastName}
+                    </TableCell>
+                    <TableCell>
+                      {dayjs(lead.createdAt).format("MM/DD/YYYY, hh:mm A")}
+                    </TableCell>
+                    <TableCell>
+                      {lead.status
+                        .replace(/_/g, " ")
+                        .toLowerCase()
+                        .replace(/\b\w/g, (l) => l.toUpperCase())}
+                    </TableCell>
                     <TableCell>{lead.country}</TableCell>
                   </TableRow>
                 ))}
@@ -554,8 +258,40 @@ export default function LeadsPage() {
               </TableBody>
             </Table>
           </ScrollArea>
-          <div className="px-4 py-4 border-t border-gray-200">
-            {renderPagination()}
+          <div className="flex items-center justify-end space-x-2 px-4 py-4 border-t border-gray-200">
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={() => setCurrentPage((p) => p - 1)}
+              disabled={currentPage === 1}
+            >
+              <ChevronLeft className="h-4 w-4" />
+            </Button>
+            {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => {
+              const isActive = page === currentPage;
+              return (
+                <Button
+                  key={page}
+                  size="sm"
+                  className={`shadow-none text-black ${
+                    isActive
+                      ? "border border-black bg-transparent hover:text-white hover:bg-black"
+                      : "bg-white border-none hover:bg-gray-100"
+                  }`}
+                  onClick={() => setCurrentPage(page)}
+                >
+                  {page}
+                </Button>
+              );
+            })}
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={() => setCurrentPage((p) => p + 1)}
+              disabled={currentPage === totalPages}
+            >
+              <ChevronRight className="h-4 w-4" />
+            </Button>
           </div>
         </div>
       </main>
