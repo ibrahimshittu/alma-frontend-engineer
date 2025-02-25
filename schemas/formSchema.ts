@@ -6,9 +6,15 @@ export const leadFormSchema = z.object({
   email: z.string().email("Email address must be valid"),
   portfolio: z.string().url("LinkedIn/Personal Website URL is required"),
   country: z.string().min(1, "Country of Citizenship is required"),
-  cv: z.any().refine((files) => files instanceof FileList && files.length > 0, {
-    message: "Resume/CV is required",
-  }),
+  cv: z.any().refine(
+    (files) =>
+      files instanceof FileList &&
+      files.length > 0 &&
+      files[0].size <= 5 * 1024 * 1024, // 5MB
+    {
+      message: "Resume/CV is required",
+    }
+  ),
   visaCategories: z
     .array(z.string())
     .min(1, "Select at least one visa category"),

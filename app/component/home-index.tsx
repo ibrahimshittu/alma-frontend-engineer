@@ -212,6 +212,17 @@ export default function Home() {
                       accept=".pdf,.doc,.docx"
                       placeholder="Resume/CV"
                       {...register("cv")}
+                      // // set max file size
+                      // onChange={(e) => {
+                      //   const file = e.target.files?.[0];
+                      //   if (file) {
+                      //     if (file.size > 5 * 1024 * 1024) {
+                      //       alert("File size exceeds 5MB");
+                      //       return;
+                      //     }
+                      //     field.onChange(file);
+                      //   }
+                      // }}
                     />
                   </FormControl>
                   <FormMessage />
@@ -249,7 +260,6 @@ export default function Home() {
                           <FormControl>
                             <Checkbox
                               checked={checked}
-                              // `onCheckedChange` can be true/false, so we handle both
                               onCheckedChange={(isChecked) => {
                                 if (isChecked) {
                                   field.onChange([...field.value, category]);
