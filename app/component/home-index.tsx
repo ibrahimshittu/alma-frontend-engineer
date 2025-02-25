@@ -7,6 +7,7 @@ import Image from "next/image";
 import {
   Form,
   FormControl,
+  FormDescription,
   FormField,
   FormItem,
   FormLabel,
@@ -24,39 +25,11 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { useRouter } from "next/navigation";
+import { toast } from "sonner";
 
 export default function Home() {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm<LeadFormData>({
-    resolver: zodResolver(leadFormSchema),
-  });
-
-  const onSubmit = async (data: LeadFormData) => {
-    try {
-      const response = await fetch("/api/lead", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data),
-      });
-
-      if (!response.ok) {
-        // Handle server-side validation or errors
-        const errorData = await response.json();
-        console.error(errorData);
-        return;
-      }
-
-      // If successful, go to thank-you page
-      // router.push("/thank-you");
-    } catch (error) {
-      console.error("An unexpected error occurred:", error);
-    }
-  };
+  const router = useRouter();
 
   const form = useForm<LeadFormData>({
     resolver: zodResolver(leadFormSchema),
@@ -71,6 +44,37 @@ export default function Home() {
       message: "",
     },
   });
+
+  const onSubmit = async (data: LeadFormData) => {
+    const formData = new FormData();
+    formData.append("firstName", data.firstName);
+    formData.append("lastName", data.lastName);
+    formData.append("email", data.email);
+    formData.append("country", data.country);
+    formData.append("portfolio", data.portfolio);
+    formData.append("message", data.message);
+    data.visaCategories.forEach((category) => {
+      formData.append("visaCategories[]", category);
+    });
+
+    if (data.cv && data.cv.length > 0) {
+      formData.append("cv", data.cv[0]);
+    }
+
+    const response = await fetch("/api/lead", {
+      method: "PUT",
+      body: formData,
+    });
+
+    if (!response.ok) {
+      toast.error("Error submitting form. Please try again.");
+      return;
+    }
+
+    document.cookie = "formSubmitted=true; path=/; max-age=60";
+    form.reset();
+    router.push("/thank-you");
+  };
 
   const availableVisaCategories = ["O1", "EB1-A", "EB2-NIW", "I don't know"];
 
@@ -96,10 +100,9 @@ export default function Home() {
           <div className="mx-auto w-full flex justify-center">
             <Image
               src="/home/info-icon.png"
-              objectFit="cover"
               width={90}
               height={18}
-              alt=""
+              alt="info"
             />
           </div>
 
@@ -137,7 +140,7 @@ export default function Home() {
               render={({ field }) => (
                 <FormItem>
                   <FormControl>
-                    <Input placeholder="LastName" {...field} />
+                    <Input placeholder="Last Name" {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -204,33 +207,25 @@ export default function Home() {
             <FormField
               control={form.control}
               name="cv"
-              render={({ field }) => (
+              render={() => (
                 <FormItem>
                   <FormControl>
                     <Input
                       type="file"
                       accept=".pdf,.doc,.docx"
                       placeholder="Resume/CV"
-                      {...register("cv")}
-                      // // set max file size
-                      // onChange={(e) => {
-                      //   const file = e.target.files?.[0];
-                      //   if (file) {
-                      //     if (file.size > 5 * 1024 * 1024) {
-                      //       alert("File size exceeds 5MB");
-                      //       return;
-                      //     }
-                      //     field.onChange(file);
-                      //   }
-                      // }}
+                      {...form.register("cv")}
                     />
                   </FormControl>
+                  <FormDescription>
+                    Upload your Resume/CV (PDF, DOC, DOCX). Max file size: 5MB
+                  </FormDescription>
                   <FormMessage />
                 </FormItem>
               )}
             />
 
-            {/* Visa Categories (Multiple Checkboxes) */}
+            {/* Visa Categories */}
             <FormField
               control={form.control}
               name="visaCategories"
@@ -239,10 +234,9 @@ export default function Home() {
                   <div className="mx-auto w-full flex justify-center">
                     <Image
                       src="/home/dice-icon.png"
-                      objectFit="cover"
                       width={90}
                       height={18}
-                      alt=""
+                      alt="dice"
                     />
                   </div>
                   <FormLabel className="text-xl font-bold text-[#010000] text-center w-full">
@@ -293,10 +287,9 @@ export default function Home() {
                   <div className="mx-auto w-full flex justify-center">
                     <Image
                       src="/home/heart-icon.png"
-                      objectFit="cover"
                       width={90}
                       height={18}
-                      alt=""
+                      alt="heart"
                     />
                   </div>
                   <FormLabel className="text-xl font-bold text-[#010000] text-center w-full">
@@ -314,9 +307,12 @@ export default function Home() {
               )}
             />
 
-            {/* Submit Button */}
-            <Button type="submit" className="w-full">
-              Submit
+            <Button
+              type="submit"
+              className="w-full"
+              disabled={form.formState.isSubmitting}
+            >
+              {form.formState.isSubmitting ? "Submitting..." : "Submit"}
             </Button>
           </form>
         </Form>

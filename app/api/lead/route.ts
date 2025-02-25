@@ -2,10 +2,12 @@ import { NextResponse } from "next/server";
 import formidable, { File } from "formidable";
 import fs from "fs/promises";
 import path from "path";
-import { ensureDirExists, readLeads, saveLeads } from "@/lib/helpers";
+import { readLeads, saveLeads, ensureDirExists } from "@/lib/helpers";
 import { getFieldValue } from "@/lib/helpers";
-import { LeadData } from "@/schemas/types";
+import { Readable } from "stream";
 import { IncomingMessage } from "http";
+import { LeadData } from "@/schemas/types";
+import jwt from "jsonwebtoken";
 
 export const config = {
   api: {
@@ -19,27 +21,35 @@ export async function POST(request: Request) {
   try {
     await ensureDirExists(uploadsDir);
 
+    const buffer = await request.arrayBuffer();
+    const nodeReq = Readable.from(Buffer.from(buffer));
+
+    (nodeReq as IncomingMessage).headers = Object.fromEntries(
+      request.headers.entries()
+    );
+
     const form = formidable({
       multiples: false,
       uploadDir: uploadsDir,
       keepExtensions: true,
-      maxFileSize: 5 * 1024 * 1024, // 5MB
+      maxFileSize: 5 * 1024 * 1024, // 5 MB limit
     });
 
     const { fields, files } = await new Promise<{
       fields: formidable.Fields;
       files: formidable.Files;
     }>((resolve, reject) => {
-      const req = request as unknown as IncomingMessage;
-      form.parse(req, (err, fields, files) => {
-        if (err) return reject(err);
-        resolve({ fields, files });
-      });
+      form.parse(
+        nodeReq as unknown as IncomingMessage,
+        (err, fields, files) => {
+          if (err) return reject(err);
+          resolve({ fields, files });
+        }
+      );
     });
 
     let visaCategories: string[] = [];
     const visaField = fields["visaCategories[]"];
-    console.log("visaField", visaField);
     if (typeof visaField === "string") {
       visaCategories = [visaField];
     } else if (Array.isArray(visaField)) {
@@ -54,6 +64,7 @@ export async function POST(request: Request) {
       portfolio: getFieldValue(fields.portfolio),
       visaCategories,
       message: getFieldValue(fields.message),
+      status: "PENDING",
       createdAt: new Date().toISOString(),
     };
 
@@ -87,21 +98,53 @@ export async function POST(request: Request) {
     }
 
     let leads: LeadData[] = await readLeads();
-
     leads.push(newLead);
-
     await saveLeads(leads);
-
-    console.log("New lead saved:", newLead);
 
     return NextResponse.json(
       { message: "Lead saved successfully", lead: newLead },
       { status: 200 }
     );
-  } catch (error) {
+  } catch (error: any) {
     console.error("Error handling lead submission:", error);
     return NextResponse.json(
-      { message: "Internal Server Error" },
+      { message: "Internal Server Error", error: (error as Error).message },
+      { status: 500 }
+    );
+  }
+}
+
+export async function GET(request: Request) {
+  const authHeader = request.headers.get("Authorization");
+  if (!authHeader || !authHeader.startsWith("Bearer ")) {
+    return NextResponse.json(
+      { message: "Unauthorized: kindly login to access this resource" },
+      { status: 401 }
+    );
+  }
+
+  const token = authHeader.split(" ")[1];
+  const secret = process.env.JWT_SECRET || "MY_SUPER_SECRET";
+
+  try {
+    jwt.verify(token, secret);
+  } catch (error) {
+    return NextResponse.json(
+      {
+        message: "Unauthorized: Invalid credentials",
+        error: (error as Error).message,
+      },
+      { status: 401 }
+    );
+  }
+
+  try {
+    const leads: LeadData[] = await readLeads();
+    return NextResponse.json({ message: "Success", leads }, { status: 200 });
+  } catch (error) {
+    console.error("Error fetching leads:", error);
+    return NextResponse.json(
+      { message: "Internal Server Error", error: (error as Error).message },
       { status: 500 }
     );
   }

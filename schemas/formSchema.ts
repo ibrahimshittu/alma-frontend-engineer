@@ -12,7 +12,7 @@ export const leadFormSchema = z.object({
       files.length > 0 &&
       files[0].size <= 5 * 1024 * 1024, // 5MB
     {
-      message: "Resume/CV is required",
+      message: "Resume/CV is required and must be less than 5MB",
     }
   ),
   visaCategories: z

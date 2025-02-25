@@ -6,6 +6,7 @@ export type LeadData = {
   portfolio: string;
   visaCategories: string[];
   message: string;
+  status?: "PENDING" | "REACHED_OUT";
   cv?: string;
   createdAt: string;
 };

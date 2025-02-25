@@ -1,8 +1,10 @@
-import Link from "next/link";
+"use client";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
+import { useRouter } from "next/navigation";
 
 export default function ThankYou() {
+  const route = useRouter();
   return (
     <div className="flex items-center justify-center h-screen bg-white">
       <div className="text-center">
@@ -24,7 +26,16 @@ export default function ThankYou() {
           </p>
         </div>
 
-        <Button type="submit" className="w-full max-w-xs mx-auto mt-10">
+        <Button
+          type="submit"
+          className="w-full max-w-xs mx-auto mt-10"
+          onClick={() => {
+            route.push("/");
+
+            document.cookie =
+              "formSubmitted=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+          }}
+        >
           Go Back to Homepage
         </Button>
       </div>

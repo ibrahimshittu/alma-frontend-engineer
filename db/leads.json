@@ -1,0 +1,122 @@
+[
+  {
+    "firstName": "Ibrahim",
+    "lastName": "Shittu",
+    "email": "ibrahim@tryalma.com",
+    "country": "United States",
+    "portfolio": "https://www.linkedin.com/in/ibrahimshittu/",
+    "visaCategories": ["EB2-NIW", "O1"],
+    "message": "rrr",
+    "status": "PENDING",
+    "createdAt": "2025-02-25T11:20:28.017Z",
+    "cv": "/uploads/Ibrahim_Shittu_1740482428017.pdf"
+  },
+  {
+    "firstName": "Ibrahim",
+    "lastName": "Shittu",
+    "email": "shittu@tryalma.com",
+    "country": "United Kingdom",
+    "portfolio": "https://www.linkedin.com/in/ibrahimshittu/",
+    "visaCategories": ["O1"],
+    "message": "help me out",
+    "status": "PENDING",
+    "createdAt": "2025-02-25T12:02:07.059Z",
+    "cv": "/uploads/Ibrahim_Shittu_1740484927059.pdf"
+  },
+  {
+    "firstName": "Ibrahim",
+    "lastName": "Shittu",
+    "email": "ibshittu01@gmail.com",
+    "country": "Austria",
+    "portfolio": "https://www.linkedin.com/in/ibrahimshittu/",
+    "visaCategories": ["I don't know"],
+    "message": "hello",
+    "status": "PENDING",
+    "createdAt": "2025-02-25T12:08:45.477Z",
+    "cv": "/uploads/Ibrahim_Shittu_1740485325477.pdf"
+  },
+  {
+    "firstName": "Maria",
+    "lastName": "Gonzalez",
+    "email": "maria.gonzalez@example.com",
+    "country": "Spain",
+    "portfolio": "https://www.linkedin.com/in/maria-gonzalez/",
+    "visaCategories": ["O1"],
+    "message": "Looking for a long-term visa option.",
+    "status": "PENDING",
+    "createdAt": "2025-02-25T09:15:22.000Z",
+    "cv": "/uploads/Maria_Gonzalez_1740490522000.pdf"
+  },
+  {
+    "firstName": "Ethan",
+    "lastName": "Smith",
+    "email": "ethan.smith@example.com",
+    "country": "Canada",
+    "portfolio": "https://www.linkedin.com/in/ethan-smith/",
+    "visaCategories": ["EB1-A"],
+    "message": "Interested in an employment-based green card.",
+    "status": "REACHED_OUT",
+    "createdAt": "2025-02-25T10:42:51.000Z",
+    "cv": "/uploads/Ethan_Smith_1740494571000.pdf"
+  },
+  {
+    "firstName": "Yuki",
+    "lastName": "Sato",
+    "email": "yuki.sato@example.com",
+    "country": "Japan",
+    "portfolio": "https://www.linkedin.com/in/yuki-sato/",
+    "visaCategories": ["EB2-NIW", "I don't know"],
+    "message": "Not sure which visa is right for me.",
+    "status": "PENDING",
+    "createdAt": "2025-02-25T11:28:14.000Z",
+    "cv": "/uploads/Yuki_Sato_1740497294000.pdf"
+  },
+  {
+    "firstName": "Zhang",
+    "lastName": "Wei",
+    "email": "zhang.wei@example.com",
+    "country": "China",
+    "portfolio": "https://www.linkedin.com/in/zhang-wei/",
+    "visaCategories": ["O1", "EB2-NIW"],
+    "message": "Hello, I'd like to explore my options.",
+    "status": "PENDING",
+    "createdAt": "2025-02-25T13:11:59.000Z",
+    "cv": "/uploads/Zhang_Wei_1740503519000.pdf"
+  },
+  {
+    "firstName": "Amelie",
+    "lastName": "Durand",
+    "email": "amelie.durand@example.com",
+    "country": "France",
+    "portfolio": "https://www.linkedin.com/in/amelie-durand/",
+    "visaCategories": ["EB1-A"],
+    "message": "Seeking permanent residency path.",
+    "status": "REACHED_OUT",
+    "createdAt": "2025-02-25T14:46:33.000Z",
+    "cv": "/uploads/Amelie_Durand_1740510393000.pdf"
+  },
+  {
+    "firstName": "Fatima",
+    "lastName": "Khan",
+    "email": "fatima.khan@example.com",
+    "country": "Pakistan",
+    "portfolio": "https://www.linkedin.com/in/fatima-khan/",
+    "visaCategories": ["O1"],
+    "message": "I'd like to work in the tech sector.",
+    "status": "PENDING",
+    "createdAt": "2025-02-25T15:20:47.000Z",
+    "cv": "/uploads/Fatima_Khan_1740512447000.pdf"
+  },
+  {
+    "firstName": "Mateo",
+    "lastName": "Lopez",
+    "email": "mateo.lopez@example.com",
+    "country": "Mexico",
+    "portfolio": "https://www.linkedin.com/in/mateo-lopez/",
+    "visaCategories": ["EB2-NIW"],
+    "message": "Need help with my green card application.",
+    "status": "PENDING",
+    "createdAt": "2025-02-25T16:53:10.000Z",
+    "cv": "/uploads/Mateo_Lopez_1740517990000.pdf"
+  }
+]
