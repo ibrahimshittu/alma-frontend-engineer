@@ -38,7 +38,7 @@ Ensure you have the following installed on your system:
 ### Steps to Run the Application
 
 ```sh
-git clone [<repository-url>](https://github.com/ibrahimshittu/alma-frontend-engineer.git)
+git clone https://github.com/ibrahimshittu/alma-frontend-engineer.git
 npm install (or npm install --force)
 npm run dev
 ```
