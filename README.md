@@ -1,8 +1,8 @@
-# Alma's Lead Management System
+# Leads Management System
 
 ## Overview
 
-Alma's Lead Management System is a robust and efficient platform designed to streamline the process of capturing, managing, and tracking leads. It provides a seamless experience for both prospects submitting their information and administrators managing lead interactions. The platform comprises:
+Lead Management System is a robust and efficient platform designed to streamline the process of capturing, managing, and tracking leads. It provides a seamless experience for both prospects submitting their information and administrators managing lead interactions. The platform comprises:
 
 - **A Public Lead Form**: A user-friendly interface where prospects can submit their details, including CV uploads.
 - **An Admin Dashboard**: A secure and interactive space where authenticated admins can view, filter, and update leads.
@@ -38,7 +38,7 @@ Ensure you have the following installed on your system:
 ### Steps to Run the Application
 
 ```sh
-git clone https://github.com/ibrahimshittu/alma-frontend-engineer.git
+git clone https://github.com/ibrahimshittu/leads-management-system.git
 npm install (or npm install --force)
 npm run dev
 ```
